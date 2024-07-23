@@ -74,6 +74,7 @@ dependencies:
   geolocator: ^11.1.0
   location: ^6.0.2
   geocoding: ^3.0.0
+  flutter_gen_runner: ^5.6.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -83,7 +84,6 @@ dev_dependencies:
   go_router_builder: any
   retrofit_generator: ^8.0.4
   build_runner: any
-  flutter_gen_runner: any
   build_verify: any
   riverpod_generator: ^2.1.6
   flutter_lints: ^4.0.0
