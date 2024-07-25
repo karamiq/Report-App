@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:app/data/services/clients/auth_client.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:app/common_lib.dart';
@@ -58,29 +56,8 @@ class CameraControls extends StatelessWidget {
                   ref(cameraNotifierProvider.notifier).flipCamera(),
               icon: const Icon(Icons.flip_camera_android_outlined),
             ),
-            IconButton(
-              onPressed: takePicture,
-              style: IconButton.styleFrom(
-                padding: Insets.extraSmallAll,
-                backgroundColor: Colors.transparent,
-              ),
-              icon: Container(
-                width: 80,
-                height: 80,
-                padding: Insets.extraSmallAll,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border:
-                      Border.all(color: Colors.white.withOpacity(.7), width: 3),
-                ),
-                child: Container(
-                  padding: Insets.smallAll,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white.withOpacity(.9),
-                  ),
-                ),
-              ),
+            TakePicture(
+              takePicture: takePicture,
             ),
             IconButton(
               style: IconButton.styleFrom(
@@ -95,6 +72,85 @@ class CameraControls extends StatelessWidget {
               icon: const Icon(Icons.image_outlined),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class TakePicture extends StatefulWidget {
+  const TakePicture({
+    super.key,
+    required this.takePicture,
+  });
+  final void Function() takePicture;
+
+  @override
+  State<TakePicture> createState() => _TakePictureState();
+}
+
+class _TakePictureState extends State<TakePicture>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> animation;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
+    animation = TweenSequence<double>([
+      TweenSequenceItem(
+          tween: Tween(begin: 80.0, end: 50.0)
+              .chain(CurveTween(curve: Curves.easeInOut)),
+          weight: 1),
+      TweenSequenceItem(
+          tween: Tween(begin: 50.0, end: 200.0)
+              .chain(CurveTween(curve: Curves.easeInOut)),
+          weight: 1)
+    ]).animate(controller);
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        controller.reverse();
+      }
+    });
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (context, child) => InkWell(
+        onLongPress: () => controller.forward(),
+        child: IconButton(
+          onPressed: () {
+            controller.forward();
+            widget.takePicture();
+          },
+          style: IconButton.styleFrom(
+            padding: Insets.extraSmallAll,
+            backgroundColor: Colors.transparent,
+          ),
+          icon: Container(
+            alignment: Alignment.center,
+            width: 80,
+            height: 80,
+            padding: Insets.extraSmallAll,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white.withOpacity(.7), width: 3),
+            ),
+            child: Container(
+              width: animation.value,
+              height: animation.value,
+              padding: Insets.smallAll,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(.9),
+              ),
+            ),
+          ),
         ),
       ),
     );

@@ -74,25 +74,6 @@
                     }
                 },
                 {
-                    "source": "/Users/karam/Documents/GitHub/Fees-App/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
-                    },
-                    "to": {
-                        "startLines": "1507,1511",
-                        "startColumns": "4,4",
-                        "startOffsets": "98016,98197",
-                        "endLines": "1510,1513",
-                        "endColumns": "12,12",
-                        "endOffsets": "98192,98361"
-                    }
-                },
-                {
                     "source": "/Users/karam/.gradle/caches/transforms-3/dc09927bc9dae82f003b082911e0842e/transformed/lifecycle-runtime-2.6.2/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -160,6 +141,25 @@
                         "startOffsets": "20625,22080",
                         "endColumns": "41,59",
                         "endOffsets": "20662,22135"
+                    }
+                },
+                {
+                    "source": "/Users/karam/Documents/GitHub/Report-App/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "1507,1511",
+                        "startColumns": "4,4",
+                        "startOffsets": "98016,98197",
+                        "endLines": "1510,1513",
+                        "endColumns": "12,12",
+                        "endOffsets": "98192,98361"
                     }
                 },
                 {
