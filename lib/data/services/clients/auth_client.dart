@@ -31,4 +31,6 @@ abstract class AuthClient {
 
   @GET('/commission/vehicle-fees')
   Future<DataModel> vichleFeeGet();
+  @GET('/fee-fines')
+  Future<DataModel> feeFines();
 }
