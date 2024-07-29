@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app/data/models/fee_fine_model.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -70,6 +71,18 @@ Future<List<PlateCharacterModel>> char(WidgetRef ref, String? id) async {
     } else {
       return governorates.where((char) => char.governorateId == id).toList();
     }
+  } catch (e) {
+    return [];
+  }
+}
+
+Future<List<FeeFineModel>> feeFines(WidgetRef ref) async {
+  try {
+    final response = await ref.read(authClientProvider).feeFines();
+    final dataList = response.data as List<dynamic>;
+    final list = dataList.map((fee) => FeeFineModel.fromJson(fee)).toList();
+    print(await dataList);
+    return list;
   } catch (e) {
     return [];
   }

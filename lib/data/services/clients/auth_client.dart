@@ -1,4 +1,3 @@
-import 'dart:io';
 import '../../models/ViechleFee.dart';
 import '../../models/commission_analysis_model.dart';
 import '../../models/data_model.dart';
@@ -28,7 +27,6 @@ abstract class AuthClient {
   Future<DataModel> plateCharacter();
   @GET('/mobile/governorates')
   Future<DataModel> governorate();
-
   @GET('/commission/vehicle-fees')
   Future<DataModel> vichleFeeGet();
   @GET('/fee-fines')

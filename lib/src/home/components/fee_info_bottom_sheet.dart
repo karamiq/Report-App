@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:app/data/models/ViechleFee.dart';
 import 'package:app/data/providers/location_model.dart';
-import 'package:app/data/services/clients/auth_client.dart';
 import 'package:flutter/material.dart';
 import '../../../common_lib.dart';
 import 'check_your_location_dialog.dart';
@@ -36,7 +35,7 @@ class _FeeInfoBottomSheetState extends ConsumerState<_FeeInfoBottomSheet> {
   final _formKey = GlobalKey<FormState>();
   bool isLoading = false;
   @override
-  void didChangeDependencies() {
+  void didChangeDependencies() async {
     super.didChangeDependencies();
     ref.read(locationProvider.notifier).getCurrentLocation();
   }
