@@ -18,7 +18,7 @@ abstract class AuthClient {
   @POST('/login')
   Future<UserModel> login(@Body() dynamic data);
   @POST("/commission/vehicle-fees")
-  Future<void> postViolation(@Body() ViechleFee violation);
+  Future<void> postViolation(@Body() VehicleFee violation);
   @POST('/file')
   Future<dynamic> postFile(@Body() FormData image);
   @GET('/commission/analysis')

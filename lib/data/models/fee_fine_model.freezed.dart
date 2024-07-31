@@ -20,12 +20,12 @@ FeeFineModel _$FeeFineModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeeFineModel {
+  String get name => throw _privateConstructorUsedError;
+  int get amount => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   DateTime get creationDate => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  int get amount => throw _privateConstructorUsedError;
-  int get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,12 +40,12 @@ abstract class $FeeFineModelCopyWith<$Res> {
       _$FeeFineModelCopyWithImpl<$Res, FeeFineModel>;
   @useResult
   $Res call(
-      {String id,
-      DateTime creationDate,
-      bool deleted,
-      String name,
+      {String name,
       int amount,
-      int type});
+      String? type,
+      String id,
+      DateTime creationDate,
+      bool deleted});
 }
 
 /// @nodoc
@@ -61,14 +61,26 @@ class _$FeeFineModelCopyWithImpl<$Res, $Val extends FeeFineModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = null,
+    Object? amount = null,
+    Object? type = freezed,
     Object? id = null,
     Object? creationDate = null,
     Object? deleted = null,
-    Object? name = null,
-    Object? amount = null,
-    Object? type = null,
   }) {
     return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -81,18 +93,6 @@ class _$FeeFineModelCopyWithImpl<$Res, $Val extends FeeFineModel>
           ? _value.deleted
           : deleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -106,12 +106,12 @@ abstract class _$$FeeFineModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      DateTime creationDate,
-      bool deleted,
-      String name,
+      {String name,
       int amount,
-      int type});
+      String? type,
+      String id,
+      DateTime creationDate,
+      bool deleted});
 }
 
 /// @nodoc
@@ -125,14 +125,26 @@ class __$$FeeFineModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = null,
+    Object? amount = null,
+    Object? type = freezed,
     Object? id = null,
     Object? creationDate = null,
     Object? deleted = null,
-    Object? name = null,
-    Object? amount = null,
-    Object? type = null,
   }) {
     return _then(_$FeeFineModelImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -145,18 +157,6 @@ class __$$FeeFineModelImplCopyWithImpl<$Res>
           ? _value.deleted
           : deleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -164,33 +164,33 @@ class __$$FeeFineModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$FeeFineModelImpl implements _FeeFineModel {
-  const _$FeeFineModelImpl(
-      {required this.id,
-      required this.creationDate,
-      required this.deleted,
-      required this.name,
+  _$FeeFineModelImpl(
+      {required this.name,
       required this.amount,
-      required this.type});
+      this.type,
+      required this.id,
+      required this.creationDate,
+      required this.deleted});
 
   factory _$FeeFineModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeeFineModelImplFromJson(json);
 
+  @override
+  final String name;
+  @override
+  final int amount;
+  @override
+  final String? type;
   @override
   final String id;
   @override
   final DateTime creationDate;
   @override
   final bool deleted;
-  @override
-  final String name;
-  @override
-  final int amount;
-  @override
-  final int type;
 
   @override
   String toString() {
-    return 'FeeFineModel(id: $id, creationDate: $creationDate, deleted: $deleted, name: $name, amount: $amount, type: $type)';
+    return 'FeeFineModel(name: $name, amount: $amount, type: $type, id: $id, creationDate: $creationDate, deleted: $deleted)';
   }
 
   @override
@@ -198,19 +198,19 @@ class _$FeeFineModelImpl implements _FeeFineModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FeeFineModelImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.creationDate, creationDate) ||
                 other.creationDate == creationDate) &&
-            (identical(other.deleted, deleted) || other.deleted == deleted) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.deleted, deleted) || other.deleted == deleted));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, creationDate, deleted, name, amount, type);
+      Object.hash(runtimeType, name, amount, type, id, creationDate, deleted);
 
   @JsonKey(ignore: true)
   @override
@@ -227,29 +227,29 @@ class _$FeeFineModelImpl implements _FeeFineModel {
 }
 
 abstract class _FeeFineModel implements FeeFineModel {
-  const factory _FeeFineModel(
-      {required final String id,
-      required final DateTime creationDate,
-      required final bool deleted,
-      required final String name,
+  factory _FeeFineModel(
+      {required final String name,
       required final int amount,
-      required final int type}) = _$FeeFineModelImpl;
+      final String? type,
+      required final String id,
+      required final DateTime creationDate,
+      required final bool deleted}) = _$FeeFineModelImpl;
 
   factory _FeeFineModel.fromJson(Map<String, dynamic> json) =
       _$FeeFineModelImpl.fromJson;
 
+  @override
+  String get name;
+  @override
+  int get amount;
+  @override
+  String? get type;
   @override
   String get id;
   @override
   DateTime get creationDate;
   @override
   bool get deleted;
-  @override
-  String get name;
-  @override
-  int get amount;
-  @override
-  int get type;
   @override
   @JsonKey(ignore: true)
   _$$FeeFineModelImplCopyWith<_$FeeFineModelImpl> get copyWith =>

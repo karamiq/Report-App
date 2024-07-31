@@ -80,8 +80,10 @@ Future<List<FeeFineModel>> feeFines(WidgetRef ref) async {
   try {
     final response = await ref.read(authClientProvider).feeFines();
     final dataList = response.data as List<dynamic>;
-    final list = dataList.map((fee) => FeeFineModel.fromJson(fee)).toList();
-    print(await dataList);
+    final list = dataList
+        .map((fee) => FeeFineModel.fromJson(fee as Map<String, dynamic>))
+        .toList();
+
     return list;
   } catch (e) {
     return [];

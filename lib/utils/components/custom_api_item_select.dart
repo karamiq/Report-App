@@ -1,15 +1,14 @@
 import 'package:app/common_lib.dart';
 import 'package:app/utils/components/decoration/input_decoration.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CustomApiItemSelect extends StatelessWidget {
   const CustomApiItemSelect({
     super.key,
     required this.labelText,
-    required this.controller,
     required this.itemListFuture,
     required this.validator,
+    required this.controller,
     this.onChanged,
     this.prefixIcon,
     this.suffixIcon = true,
@@ -25,10 +24,10 @@ class CustomApiItemSelect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _focusNode = FocusNode();
+    final focusNode = FocusNode();
     return TextFormField(
-      focusNode: _focusNode,
-      onTapOutside: (event) => _focusNode.unfocus(),
+      focusNode: focusNode,
+      onTapOutside: (event) => focusNode.unfocus(),
       readOnly: true,
       decoration: customInputDecoration(
           labelText: labelText,
@@ -159,6 +158,7 @@ class _ShowSelectionBottomSheetState extends State<ShowSelectionBottomSheet> {
                         onTap: () {
                           widget.controller.text =
                               _filteredCountries[index].name;
+                          print(widget.controller.text);
                           Navigator.of(context).pop(_filteredCountries[index]);
                         },
                       );

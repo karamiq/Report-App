@@ -10,7 +10,7 @@ class FeeDetailesPage extends StatelessWidget {
     super.key,
     required this.feeDetailes,
   });
-  final ViechleFee feeDetailes;
+  final VehicleFee feeDetailes;
 
   @override
   Widget build(BuildContext context) {

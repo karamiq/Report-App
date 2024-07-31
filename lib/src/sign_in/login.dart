@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:app/common_lib.dart';
 import 'package:app/data/models/user_model.dart';
 import 'package:app/data/providers/user_provider.dart';
+import 'package:app/data/services/clients/_clients.dart';
 import 'package:app/data/services/clients/auth_client.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,7 +15,7 @@ class LoginPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final GlobalKey formKey = GlobalKey<FormState>();
     final emailController = TextEditingController(text: 'admin@garages.com');
-    final passwordController = TextEditingController(text: '12345678');
+    final passwordController = TextEditingController(text: '123@root');
     final userState = ref.watch(userProvider.notifier);
 
     Future<UserModel?> signIn() async {
@@ -25,7 +26,6 @@ class LoginPage extends ConsumerWidget {
       try {
         final response = await ref.read(authClientProvider).login(data);
         final result = response;
-        print('the new user: ${result}');
         userState.setUser(result);
         final pref = await SharedPreferences.getInstance();
         pref.setString('token', result.token);
@@ -34,8 +34,8 @@ class LoginPage extends ConsumerWidget {
         }
 
         return result;
-      } catch (e) {
-        print('failed: $e');
+      } on DioException catch (e) {
+        print(e);
       }
       return null;
     }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class FeeIsSendPage extends StatelessWidget {
   const FeeIsSendPage({super.key, required this.feeDetailes});
-  final ViechleFee feeDetailes;
+  final VehicleFee feeDetailes;
 
   @override
   Widget build(BuildContext context) {

@@ -54,7 +54,7 @@ class _FeeInfoBottomSheetState extends ConsumerState<_FeeInfoBottomSheet> {
           Center(child: SvgPicture.asset(Assets.assetsSvgArrowUp)),
           Form(
             key: _formKey,
-            child: const FeeForm(),
+            child: FeeForm(),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -68,21 +68,10 @@ class _FeeInfoBottomSheetState extends ConsumerState<_FeeInfoBottomSheet> {
                 try {
                   final imageUrl = await postImage(ref, widget.path);
                   final loc = location.placemarks;
-                  ViechleFee data = ViechleFee(
-                      number: 2345,
-                      vehicleId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                      feeFinesId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                      violationLocation: "${loc?.locality}",
-                      images: [imageUrl!],
-                      lat: location.latitude.toString(),
-                      lng: location.longitude.toString(),
-                      garageId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                      creationDate: DateTime.now(),
-                      note: FeeFormState.notesController.text);
 
                   //400 error
                   // await ref.read(authClientProvider).postViolation(data);
-                  context.pushNamed(RoutesDocument.feeIsSend, extra: data);
+                  // context.pushNamed(RoutesDocument.feeIsSend, extra: data);
                 } catch (e) {
                   null;
                 }

@@ -46,7 +46,7 @@ class _AuthClient implements AuthClient {
   }
 
   @override
-  Future<void> postViolation(ViechleFee violation) async {
+  Future<void> postViolation(VehicleFee violation) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

@@ -71,14 +71,14 @@ final router = GoRouter(
       path: RoutesDocument.feeIsSend,
       name: RoutesDocument.feeIsSend,
       builder: (context, state) =>
-          FeeIsSendPage(feeDetailes: state.extra as ViechleFee),
+          FeeIsSendPage(feeDetailes: state.extra as VehicleFee),
     ),
     GoRoute(
       parentNavigatorKey: _rootNavigatorKey,
       path: RoutesDocument.feeDetailes,
       name: RoutesDocument.feeDetailes,
       builder: (context, state) =>
-          FeeDetailesPage(feeDetailes: state.extra as ViechleFee),
+          FeeDetailesPage(feeDetailes: state.extra as VehicleFee),
     ),
     GoRoute(
       parentNavigatorKey: _rootNavigatorKey,
