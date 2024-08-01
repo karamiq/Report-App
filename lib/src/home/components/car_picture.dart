@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app/src/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -15,17 +16,17 @@ class TakePicture extends StatefulWidget {
   final void Function(File? image) tokenPicture;
 
   @override
-  createState() => _TakePictureState();
+  createState() => TakePictureState();
 }
 
-class _TakePictureState extends State<TakePicture> {
+class TakePictureState extends State<TakePicture> {
   @override
   void initState() {
     fetch();
     super.initState();
   }
 
-  File? _picturePath;
+  static File? picturePath;
 
   Future<void> _takePicture() async {
     try {
@@ -41,17 +42,11 @@ class _TakePictureState extends State<TakePicture> {
       if (pickedFile != null) {
         final file = File(pickedFile.path);
         setState(() {
-          _picturePath = file;
+          picturePath = file;
         });
-        print('Picture path: ${_picturePath?.path}');
-        widget.tokenPicture(_picturePath);
-        print('selected Picture: ${file}');
-      } else {
-        print('No image selected.');
-      }
-    } catch (e) {
-      print('Error picking image: $e');
-    }
+        widget.tokenPicture(picturePath);
+      } else {}
+    } catch (e) {}
   }
 
   void fetch() async {
@@ -77,14 +72,13 @@ class _TakePictureState extends State<TakePicture> {
             borderRadius: BorderSize.mediumRadius,
             color: Colors.black.withOpacity(.5),
           ),
-          child: _picturePath != null
+          child: picturePath != null
               ? ClipRRect(
                   borderRadius: BorderSize.mediumRadius,
                   child: Image.file(
-                    _picturePath!,
+                    picturePath!,
                     width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 )
               : const Text(

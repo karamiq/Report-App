@@ -55,37 +55,18 @@ class ProfilePageHead extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(width: Insets.medium), // Use SizedBox for spacing
+          const SizedBox(width: Insets.medium),
           Container(
-            padding: const EdgeInsets.all(2),
+            padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
-              border: Border.all(
-                color: Theme.of(context).colorScheme.surface.withOpacity(.8),
-                width: 2,
-              ),
-              shape: BoxShape.circle,
-            ),
-            child: Container(
-              padding: const EdgeInsets.all(3),
-              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 35),
-                    blurRadius: 50,
-                    spreadRadius: 0,
-                    color: Color.fromARGB(69, 255, 255, 255),
-                  ),
-                  BoxShadow(
-                    offset: Offset(10, 35),
-                    blurRadius: 50,
-                    spreadRadius: 0,
-                    color: Color.fromARGB(70, 255, 255, 255),
-                  ),
-                ],
-              ),
+                border: Border.all(color: const Color(0xFFBFB5FF), width: 2)),
+            child: Container(
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: const Color(0xFFF3F2E9), width: 2)),
               child: CircleAvatar(
-                radius: BorderSize.extraLarge - 5,
+                radius: 35,
                 backgroundImage: NetworkImage(profileImageUrl),
               ),
             ),

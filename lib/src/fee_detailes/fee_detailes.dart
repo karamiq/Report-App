@@ -39,9 +39,11 @@ class FeeDetailesPage extends StatelessWidget {
               ),
               const Gap(Insets.medium),
               FeeFullDetailes(
-                plateNumber: feeDetailes.number.toString(),
+                plateNumber: feeDetailes.plateNumber.toString(),
                 governorate: feeDetailes.governorate,
-                plateLetter: feeDetailes.plateCharacter,
+                plateLetter: feeDetailes.plateCharacter.isEmpty
+                    ? 'لا يوجد'
+                    : feeDetailes.plateCharacter,
                 routeName: feeDetailes.violationLocation,
               ),
             ]),

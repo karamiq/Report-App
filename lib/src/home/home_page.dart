@@ -53,71 +53,91 @@ class HomePage extends HookConsumerWidget {
                 child: const FeeForm(),
               ),
               ElevatedButton(
-                onPressed: () async {
-                  isLoading.value = true;
-                  if (!await ref
-                      .watch(locationProvider.notifier)
-                      .getCurrentLocation()) {
-                    checkYourLocation(context);
-                    isLoading.value = false;
-                    return;
-                  }
-                  if (picture == null) {
-                    Utils.showErrorSnackBar('التقط صورة للسيارة المخالفة');
-                    isLoading.value = false;
-                    return;
-                  }
-                  if (formKey.currentState!.validate() && picture != null) {
-                    try {
-                      final imageUrl = await postImage(ref, picture!);
+                onPressed: isLoading.value
+                    ? null
+                    : () async {
+                        isLoading.value = true;
+                        if (formKey.currentState!.validate()) {
+                          if (picture == null) {
+                            Utils.showErrorSnackBar(
+                                'التقط صورة للسيارة المخالفة');
+                            isLoading.value = false;
+                            return;
+                          }
+                          try {
+                            if (!await ref
+                                .watch(locationProvider.notifier)
+                                .getCurrentLocation()) {
+                              checkYourLocation(context);
+                              isLoading.value = false;
+                              return;
+                            }
+                            // final imageUrl = await postImage(ref, picture!);
+                            final imageUrl = '';
 
-                      Map<String, dynamic> data = {
-                        "number":
-                            int.parse(FeeFormState.feeNumberContorller.text),
-                        "plateNumber": FeeFormState
-                            .plateNumberController.text, // Ensure it's a String
-                        "plateCharacterId": FeeFormState.plateCharacterId.text,
-                        "plateTypeId": FeeFormState.plateTypeId.text,
-                        "feeFinesId": FeeFormState.feeFinesId.text,
-                        "garageId": user!.garageId,
-                        "creationDate": DateTime.now()
-                            .toIso8601String(), // Convert DateTime to ISO8601 string
-                        "governorateId":
-                            FeeFormState.governorateControllerId.text,
-                        "images": [imageUrl],
-                        "note": FeeFormState.notesController.text,
-                        "lat": loc!.lat.toString(),
-                        "lng": loc.lng.toString(),
-                        "violationLocation":
-                            '${loc.place!.locality}/${loc.place!.subLocality}',
-                      };
-                      VehicleFee vehicleFee = VehicleFee(
-                          number:
-                              int.parse(FeeFormState.feeNumberContorller.text),
-                          plateNumber: FeeFormState.plateNumberController.text,
-                          plateTypeId: FeeFormState.plateTypeId.text,
-                          plateCharacter: FeeFormState.charController.text,
-                          creationDate: DateTime.now(),
-                          governorate: FeeFormState.governorateController.text,
-                          images: [imageUrl!],
-                          violationLocation:
-                              '${loc.place!.locality}/${loc.place!.subLocality}');
-                      print(data);
-                      //400 error
-                      //await ref.read(authClientProvider).postViolation(data);
-                      context.pushNamed(RoutesDocument.feeIsSend,
-                          extra: vehicleFee);
-                    } catch (e) {
-                      print(e);
-                    }
-                  } else {
-                    isLoading.value = false;
-                    return;
-                  }
-                  isLoading.value = false;
-                },
+                            Map<String, dynamic> data = {
+                              "number": int.parse(
+                                  FeeFormState.feeNumberContorller.text),
+                              "plateNumber": FeeFormState.plateNumberController
+                                  .text, // Ensure it's a String
+                              "plateCharacterId":
+                                  FeeFormState.plateCharacterId.text,
+                              "plateTypeId": FeeFormState.plateTypeId.text,
+                              "feeFinesId": FeeFormState.feeFinesId.text,
+                              "garageId": user!.garageId,
+                              "creationDate": DateTime.now().toIso8601String(),
+                              "governorateId":
+                                  FeeFormState.governorateControllerId.text,
+                              "images": [imageUrl],
+                              "note": FeeFormState.notesController.text,
+                              "lat": loc!.lat.toString(),
+                              "lng": loc.lng.toString(),
+                              "violationLocation":
+                                  '${loc.place!.locality}/${loc.place!.subLocality}',
+                            };
+                            VehicleFee vehicleFee = VehicleFee(
+                                number: int.parse(
+                                    FeeFormState.feeNumberContorller.text),
+                                plateNumber:
+                                    FeeFormState.plateNumberController.text,
+                                plateTypeId: FeeFormState.plateTypeId.text,
+                                plateCharacter:
+                                    FeeFormState.charController.text,
+                                creationDate: DateTime.now(),
+                                governorate:
+                                    FeeFormState.governorateController.text,
+                                images: [imageUrl!],
+                                violationLocation:
+                                    '${loc.place!.locality}/${loc.place!.subLocality}');
+                            //400 error
+                            //await ref.read(authClientProvider).postViolation(data);
+                            FeeFormState.feeNumberContorller.clear();
+                            FeeFormState.plateNumberController.clear();
+                            FeeFormState.plateTypeId.clear();
+                            FeeFormState.charController.clear();
+                            FeeFormState.governorateController.clear();
+                            FeeFormState.notesController.clear();
+                            FeeFormState.governorateControllerId.clear();
+                            FeeFormState.plateCharacterId.clear();
+                            FeeFormState.feeFinesId.clear();
+                            FeeFormState.plateType.clear();
+                            FeeFormState.feeFine.clear();
+                            TakePictureState.picturePath = null;
+                            picture = null;
+
+                            context.pushNamed(RoutesDocument.feeIsSend,
+                                extra: vehicleFee);
+                          } catch (e) {
+                            print(e);
+                          }
+                        } else {
+                          isLoading.value = false;
+                          return;
+                        }
+                        isLoading.value = false;
+                      },
                 child: isLoading.value
-                    ? const CircularProgressIndicator(color: Colors.white)
+                    ? const CircularProgressIndicator()
                     : const Text(
                         'ارسال المخالفة',
                         style: TextStyle(

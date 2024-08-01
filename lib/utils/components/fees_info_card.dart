@@ -42,8 +42,8 @@ class FeesInfoCard extends StatelessWidget {
             const Gap(Insets.small),
             Text(
               '$subTitle',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onPrimaryContainer,
+              style: const TextStyle(
+                color: Color(0xFF033D88),
                 fontWeight: FontsTheme.bigWeight,
                 fontSize: FontsTheme.bigSize,
               ),
@@ -51,12 +51,12 @@ class FeesInfoCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  onPressed: onIconPressed,
-                  style: IconButton.styleFrom(
-                      backgroundColor:
-                          Theme.of(context).scaffoldBackgroundColor),
-                  icon: SvgPicture.asset(icon,
+                Container(
+                  padding: Insets.smallAll,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Theme.of(context).scaffoldBackgroundColor),
+                  child: SvgPicture.asset(icon,
                       color: Theme.of(context).colorScheme.primary),
                 ),
               ],

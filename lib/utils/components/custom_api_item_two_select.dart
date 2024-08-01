@@ -99,6 +99,7 @@ class _ShowSelectionBottomSheetState extends State<ShowSelectionBottomSheet> {
 
   @override
   void initState() {
+    _itemsFuture = widget.fetchItems(widget.ref, widget.govId, '');
     super.initState();
     _searchController.addListener(() {
       _filterItems(_searchController.text);
@@ -107,7 +108,6 @@ class _ShowSelectionBottomSheetState extends State<ShowSelectionBottomSheet> {
 
   void _filterItems(String query) {
     //remove all whitespace characters from the query cuz why not :}
-
     query = query.replaceAll(RegExp(r'\s+'), '');
 
     if (query.isEmpty) {
@@ -150,61 +150,55 @@ class _ShowSelectionBottomSheetState extends State<ShowSelectionBottomSheet> {
                 prefixIcon: null,
                 context: context),
           ),
-          if (_itemsFuture == null)
-            Container(
-                height: 300,
-                alignment: Alignment.center,
-                child: const Text('الرجاء الكتابة للبحث عن العناصر.'))
-          else
-            FutureBuilder<List<dynamic>>(
-              future: _itemsFuture,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return SizedBox(
-                      height: MediaQuery.of(context).size.height * .5,
-                      child: const Center(child: CircularProgressIndicator()));
-                } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
-                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return SizedBox(
-                      height: MediaQuery.of(context).size.height * .5,
-                      child: const Center(child: Text('لا توجد عناصر')));
+          FutureBuilder<List<dynamic>>(
+            future: _itemsFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return SizedBox(
+                    height: MediaQuery.of(context).size.height * .5,
+                    child: const Center(child: CircularProgressIndicator()));
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return SizedBox(
+                    height: MediaQuery.of(context).size.height * .5,
+                    child: const Center(child: Text('لا توجد عناصر')));
+              } else {
+                _filteredItems = snapshot.data!;
+                double height = 600;
+                if (snapshot.data!.length <= 4) {
+                  height = 300;
+                } else if (snapshot.data!.length <= 8 &&
+                    snapshot.data!.length >= 4) {
+                  height = 450;
                 } else {
-                  _filteredItems = snapshot.data!;
-                  double height = 600;
-                  if (snapshot.data!.length <= 4) {
-                    height = 300;
-                  } else if (snapshot.data!.length <= 8 &&
-                      snapshot.data!.length >= 4) {
-                    height = 450;
-                  } else {
-                    height = 500;
-                  }
-                  return Container(
-                    height: height,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(BorderSize.medium))),
-                    padding: const EdgeInsets.all(16.0),
-                    child: ListView.builder(
-                      itemCount: _filteredItems.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
-                          contentPadding: Insets.noneAll,
-                          title: Text(_filteredItems[index]?.name ?? ''),
-                          subtitle: Text(
-                              _filteredItems[index]?.governorateName ?? ''),
-                          onTap: () {
-                            widget.controller.text = _filteredItems[index].name;
-                            Navigator.of(context).pop(_filteredItems[index]);
-                          },
-                        );
-                      },
-                    ),
-                  );
+                  height = 500;
                 }
-              },
-            ),
+                return Container(
+                  height: height,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(BorderSize.medium))),
+                  padding: const EdgeInsets.all(16.0),
+                  child: ListView.builder(
+                    itemCount: _filteredItems.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        contentPadding: Insets.noneAll,
+                        title: Text(_filteredItems[index]?.name ?? ''),
+                        subtitle:
+                            Text(_filteredItems[index]?.governorateName ?? ''),
+                        onTap: () {
+                          widget.controller.text = _filteredItems[index].name;
+                          Navigator.of(context).pop(_filteredItems[index]);
+                        },
+                      );
+                    },
+                  ),
+                );
+              }
+            },
+          ),
         ],
       ),
     );

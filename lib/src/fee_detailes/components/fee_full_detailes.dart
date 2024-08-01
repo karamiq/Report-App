@@ -59,7 +59,7 @@ class FeeFullDetailes extends StatelessWidget {
               const SizedBox(width: Insets.extraLarge),
               Expanded(
                 child: FeeDetailesInfoSequare(
-                  title: 'اسم الخط',
+                  title: 'الموقع',
                   iconPath: Assets.assetsSvgListNumbers,
                   data: routeName,
                 ),

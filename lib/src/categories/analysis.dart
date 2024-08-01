@@ -14,13 +14,9 @@ class CategoriesPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Future<CommissionAnalysisModel> fetchViolations() async {
-      try {
-        Future<CommissionAnalysisModel> response =
-            ref.read(authClientProvider).commissionAnalysis();
-        return response;
-      } catch (e) {
-        throw Exception(e);
-      }
+      final response = await ref.read(authClientProvider).commissionAnalysis();
+      final data = CommissionAnalysisModel.fromJson(response);
+      return data;
     }
 
     return Scaffold(
@@ -38,7 +34,6 @@ class CategoriesPage extends ConsumerWidget {
             return const Center(child: Text('No data available'));
           } else {
             final commissionAnalysis = snapshot.data;
-
             return SingleChildScrollView(
               padding: Insets.mediumAll,
               child: ColumnPadded(
@@ -52,15 +47,17 @@ class CategoriesPage extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FeesInfoCard(
-                        title: 'عدد الغرامات الاسبوعية',
+                        title: ' عدد الغرامات المسجلة',
                         icon: Assets.assetsSvgTrafficSignal,
-                        subTitle: "${commissionAnalysis!.totalPrice}",
+                        subTitle:
+                            commissionAnalysis?.numberOfViolations.toString() ??
+                                '',
                         onIconPressed: () {},
                       ),
                       FeesInfoCard(
                         title: 'المبلغ الكلي للغرامات المسجلة',
                         icon: Assets.assetsSvgTrafficSignal,
-                        subTitle: "${commissionAnalysis.totalPrice}IQD",
+                        subTitle: "${commissionAnalysis?.totalPrice}IQD",
                         onIconPressed: () {},
                       ),
                     ],
@@ -74,9 +71,9 @@ class CategoriesPage extends ConsumerWidget {
                   ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: commissionAnalysis.lastViolations.length,
+                      itemCount: commissionAnalysis!.lastViolations.length,
                       separatorBuilder: (context, index) =>
-                          const Gap(Insets.small),
+                          const Gap(Insets.medium),
                       itemBuilder: (context, index) => ViolationCard(
                             recieptNumber: commissionAnalysis
                                 .lastViolations[index].number

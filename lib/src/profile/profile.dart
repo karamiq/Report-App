@@ -6,8 +6,6 @@ import 'package:app/utils/components/custom_profile_option.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'components/profile_page_head.dart';
-import 'components/theme_switch.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
@@ -29,23 +27,13 @@ class ProfilePage extends ConsumerWidget {
                 email: userState.email,
                 registrationDate: userState.creationDate.formatDate(),
                 profileImageUrl:
-                    'https://cdn.oneesports.gg/cdn-data/2023/04/Anime_DemonSlayer_Muzan_3.jpg',
-              ),
-              CustomProfileOption(
-                title: 'الملف الشخصي',
-                icon: Assets.assetsSvgProfile,
-                onPressed: () {},
+                    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
               ),
               CustomProfileOption(
                 title: 'سجل المخالفات',
                 icon: Assets.assetsSvgReceiptMinus,
                 onPressed: () =>
                     context.pushNamed(RoutesDocument.recordOfViolations),
-              ),
-              CustomProfileOption(
-                title: 'اللغة',
-                icon: Assets.assetsSvgTranslate,
-                onPressed: () {},
               ),
               CustomProfileOption(
                 onPressed: () => showModalBottomSheet(
@@ -56,7 +44,6 @@ class ProfilePage extends ConsumerWidget {
                 icon: Assets.assetsSvgSignOut,
                 color: Theme.of(context).colorScheme.error,
               ),
-              const ChangeThemeButton(),
             ]),
     );
   }

@@ -3,41 +3,41 @@ import 'dart:async';
 import 'package:app/common_lib.dart';
 import 'package:app/data/models/user_model.dart';
 import 'package:app/data/providers/user_provider.dart';
-import 'package:app/data/services/clients/_clients.dart';
 import 'package:app/data/services/clients/auth_client.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends ConsumerWidget {
+class LoginPage extends HookConsumerWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final GlobalKey formKey = GlobalKey<FormState>();
-    final emailController = TextEditingController(text: 'admin@garages.com');
-    final passwordController = TextEditingController(text: '123@root');
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
     final userState = ref.watch(userProvider.notifier);
+    final isLoading = useState<bool>(false);
 
-    Future<UserModel?> signIn() async {
+    void signIn() async {
+      isLoading.value = true;
       final data = {
-        'email': emailController.text,
-        'password': passwordController.text,
+        'email': emailController.text.trim(),
+        'password': passwordController.text.trim(),
       };
       try {
         final response = await ref.read(authClientProvider).login(data);
         final result = response;
-        userState.setUser(result);
+        await userState.setUser(result);
         final pref = await SharedPreferences.getInstance();
         pref.setString('token', result.token);
         if (await userState.isLogin()) {
           context.go(RoutesDocument.cam);
         }
-
-        return result;
-      } on DioException catch (e) {
-        print(e);
+        isLoading.value = false;
+      } catch (e) {
+        isLoading.value = false;
       }
-      return null;
+      isLoading.value = false;
     }
 
     return Scaffold(
@@ -71,7 +71,10 @@ class LoginPage extends ConsumerWidget {
               ),
               const Gap(Insets.large),
               ElevatedButton(
-                  onPressed: signIn, child: const Text('تسجيل الدخول')),
+                  onPressed: isLoading.value ? null : signIn,
+                  child: isLoading.value
+                      ? const CircularProgressIndicator()
+                      : const Text('تسجيل الدخول')),
             ],
           ),
         ),

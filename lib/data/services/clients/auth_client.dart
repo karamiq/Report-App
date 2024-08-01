@@ -1,11 +1,7 @@
-import 'package:retrofit/retrofit.dart';
-
-import '../../models/ViechleFee.dart';
 import '../../models/commission_analysis_model.dart';
 import '../../models/data_model.dart';
 import '../../models/user_model.dart';
 import '_clients.dart';
-
 part "auth_client.g.dart";
 
 @riverpod
@@ -24,7 +20,7 @@ abstract class AuthClient {
   @POST('/file')
   Future<dynamic> postFile(@Body() FormData image);
   @GET('/commission/analysis')
-  Future<CommissionAnalysisModel> commissionAnalysis();
+  Future<dynamic> commissionAnalysis();
   @GET('/mobile/plate-characters')
   Future<dynamic> plateCharacter(
       @Query('name') String? name,

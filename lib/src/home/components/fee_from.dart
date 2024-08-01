@@ -20,7 +20,7 @@ class FeeFormState extends ConsumerState<FeeForm> {
   static late TextEditingController charController;
   static late TextEditingController plateNumberController;
   late TextEditingController violationTypeController;
-  late TextEditingController feeFine;
+  static late TextEditingController feeFine;
   static late TextEditingController notesController;
   static late TextEditingController feeNumberContorller;
   ///////////////////////////////////////////////////
@@ -54,7 +54,9 @@ class FeeFormState extends ConsumerState<FeeForm> {
   }
 
   void fetch() async {
-    feeNumberContorller.text = await lastNumber(ref);
+    try {
+      feeNumberContorller.text = await lastNumber(ref);
+    } catch (e) {}
   }
 
   @override
@@ -91,7 +93,6 @@ class FeeFormState extends ConsumerState<FeeForm> {
     if (number == null) {
       return 'ادخل رقم صالح';
     }
-
     return null;
   }
 
@@ -141,11 +142,31 @@ class FeeFormState extends ConsumerState<FeeForm> {
         Row(
           children: [
             Expanded(
+              flex: 4,
+              child: CustomApiItemSelectOne(
+                labelText: 'المحافظة',
+                controller: governorateController,
+                itemListFuture: gov(ref, null),
+                onSelect: (value) async {
+                  setState(() {
+                    charList = char(ref, value?.id, null);
+                    try {
+                      governorateControllerId.text = value?.id;
+                    } catch (e) {}
+                    charController.text = '';
+                  });
+                },
+                validator: validator,
+              ),
+            ),
+            const Gap(Insets.small),
+            Expanded(
               flex: 2,
               child: CustomApiItemSelectTwo(
                 enabled: governorateController.text.isNotEmpty,
                 labelText: 'الحرف',
-                fetchItems: (ref, govId, name) => char(ref, govId, name),
+                fetchItems: (ref, govId, name) =>
+                    char(ref, governorateControllerId.text, name),
                 //  validator: validator,
                 govId: governorateControllerId.text,
                 controller: charController,
@@ -157,30 +178,8 @@ class FeeFormState extends ConsumerState<FeeForm> {
                     final gg = await govById(ref, value.governorateId);
                     governorateController.text = gg?.name ?? '';
                     governorateControllerId.text = value.governorateId;
-                  } catch (e) {
-                    print(e);
-                  }
+                  } catch (e) {}
                 },
-              ),
-            ),
-            const Gap(Insets.small),
-            Expanded(
-              flex: 4,
-              child: CustomApiItemSelectOne(
-                labelText: 'المحافظة',
-                controller: governorateController,
-                itemListFuture: gov(ref, null),
-                onSelect: (value) async {
-                  print(value);
-                  setState(() {
-                    charList = char(ref, value?.id, null);
-                    try {
-                      governorateControllerId.text = value?.id;
-                    } catch (e) {}
-                    charController.text = '';
-                  });
-                },
-                validator: validator,
               ),
             ),
           ],
@@ -205,7 +204,6 @@ class FeeFormState extends ConsumerState<FeeForm> {
           onTapOutside: (f) => focusNode3.unfocus(),
           focusNode: focusNode3,
           controller: notesController,
-          validator: validator,
           maxLines: 3,
           decoration: customNoteDecoration(
             context: context,

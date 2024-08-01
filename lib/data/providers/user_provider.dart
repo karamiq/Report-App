@@ -33,7 +33,6 @@ class UserNotifier extends StateNotifier<UserModel?> {
   Future<bool> isLogin() async {
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString('user');
-    print('userState: $jsonString');
     if (jsonString != null) {
       return true;
     } else {
