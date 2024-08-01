@@ -1,7 +1,6 @@
 import 'package:app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'extra_colors.dart';
 
 class AppTheme {
@@ -128,7 +127,6 @@ class AppTheme {
     } else if (brightness == Brightness.dark) {
       colorj = Colors.black54;
     }
-    final colorScheme = _buildColorScheme(brightness);
     return colorj!;
   }
 

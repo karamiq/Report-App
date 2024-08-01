@@ -1,4 +1,3 @@
-import 'package:app/data/providers/user_provider.dart';
 import 'package:app/main.dart';
 import 'package:app/router/app_router.dart';
 import 'package:app/data/providers/settings_provider.dart';

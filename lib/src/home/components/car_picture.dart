@@ -26,7 +26,6 @@ class TakePictureState extends State<TakePicture> {
   static File? picturePath;
   Future<void> _takePicture() async {
     try {
-      print('ask');
       final statues = await Permission.camera.request();
       if (statues.isPermanentlyDenied || statues.isDenied) {
         openAppSettings();

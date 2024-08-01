@@ -4,7 +4,7 @@ import '../../common_lib.dart';
 import 'decoration/input_decoration.dart';
 
 class CustomApiItemSelectOne extends StatelessWidget {
-  CustomApiItemSelectOne({
+  const CustomApiItemSelectOne({
     super.key,
     required this.labelText,
     required this.controller,
@@ -19,7 +19,7 @@ class CustomApiItemSelectOne extends StatelessWidget {
   final TextEditingController controller;
   final Future<List<dynamic>> itemListFuture;
   final String? prefixIcon;
-  Function(dynamic)? onSelect;
+  final Function(dynamic)? onSelect;
 
   @override
   Widget build(BuildContext context) {
