@@ -12,13 +12,16 @@ class LoginPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final GlobalKey formKey = GlobalKey<FormState>();
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
+    final formKey = GlobalKey<FormState>();
+    final emailController = useTextEditingController();
+    final passwordController = useTextEditingController();
     final userState = ref.watch(userProvider.notifier);
     final isLoading = useState<bool>(false);
 
     void signIn() async {
+      if (!formKey.currentState!.validate()) {
+        return;
+      }
       isLoading.value = true;
       final data = {
         'email': emailController.text.trim(),
@@ -33,11 +36,11 @@ class LoginPage extends HookConsumerWidget {
         if (await userState.isLogin()) {
           context.go(RoutesDocument.cam);
         }
-        isLoading.value = false;
       } catch (e) {
+        // Handle error appropriately, such as showing a snackbar or dialog
+      } finally {
         isLoading.value = false;
       }
-      isLoading.value = false;
     }
 
     return Scaffold(
@@ -64,10 +67,22 @@ class LoginPage extends HookConsumerWidget {
               CustomTextFormField(
                 controller: emailController,
                 hintText: 'الحساب',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'ادخل الحساب';
+                  }
+                  return null;
+                },
               ),
               CustomTextFormField(
                 hintText: 'كلمة السر',
                 controller: passwordController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'ادخل الرمز';
+                  }
+                  return null;
+                },
               ),
               const Gap(Insets.large),
               ElevatedButton(
