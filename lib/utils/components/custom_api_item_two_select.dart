@@ -186,8 +186,6 @@ class _ShowSelectionBottomSheetState extends State<ShowSelectionBottomSheet> {
                       return ListTile(
                         contentPadding: Insets.noneAll,
                         title: Text(_filteredItems[index]?.name ?? ''),
-                        subtitle:
-                            Text(_filteredItems[index]?.governorateName ?? ''),
                         onTap: () {
                           widget.controller.text = _filteredItems[index].name;
                           Navigator.of(context).pop(_filteredItems[index]);

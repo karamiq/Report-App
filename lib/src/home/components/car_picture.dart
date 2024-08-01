@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:app/src/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -12,7 +10,6 @@ class TakePicture extends StatefulWidget {
     super.key,
     required this.tokenPicture,
   });
-
   final void Function(File? image) tokenPicture;
 
   @override
@@ -27,7 +24,6 @@ class TakePictureState extends State<TakePicture> {
   }
 
   static File? picturePath;
-
   Future<void> _takePicture() async {
     try {
       print('ask');

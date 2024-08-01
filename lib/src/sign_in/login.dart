@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:app/common_lib.dart';
-import 'package:app/data/models/user_model.dart';
 import 'package:app/data/providers/user_provider.dart';
 import 'package:app/data/services/clients/auth_client.dart';
 import 'package:flutter/material.dart';

@@ -72,8 +72,7 @@ class HomePage extends HookConsumerWidget {
                               isLoading.value = false;
                               return;
                             }
-                            // final imageUrl = await postImage(ref, picture!);
-                            final imageUrl = '';
+                            final imageUrl = await postImage(ref, picture!);
 
                             Map<String, dynamic> data = {
                               "number": int.parse(
