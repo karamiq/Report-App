@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:location/location.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../models/location_model.dart';
 
 class LocationNotifier extends StateNotifier<LocationModel?> {
@@ -20,29 +19,24 @@ class LocationNotifier extends StateNotifier<LocationModel?> {
       if (latitude != null && longitude != null) {
         final placemarks = await convertToAddress(latitude, longitude);
         state = LocationModel(
-          latitude: latitude,
-          longitude: longitude,
-          placemarks: placemarks,
+          lat: latitude,
+          lng: longitude,
+          place: placemarks,
         );
       } else {
-        print('No saved location found');
         state = null;
       }
     } catch (e) {
-      print('Failed to load saved location: $e');
       state = null;
     }
   }
 
-  Future<void> getCurrentLocation() async {
+  Future<bool> getCurrentLocation() async {
     final location = Location();
 
     try {
-      if (!await _checkAndRequestService(location)) return;
-      if (!await _checkAndRequestPermission()) return;
-
-      print('Access granted for location');
-
+      if (!await _checkAndRequestService(location)) return false;
+      if (!await _checkAndRequestPermission()) return false;
       final locationData = await location.getLocation();
       if (locationData.latitude != null && locationData.longitude != null) {
         final latitude = locationData.latitude!;
@@ -54,20 +48,18 @@ class LocationNotifier extends StateNotifier<LocationModel?> {
         await prefs.setDouble('longitude', longitude);
 
         state = LocationModel(
-          latitude: latitude,
-          longitude: longitude,
-          placemarks: placemarks,
+          lat: latitude,
+          lng: longitude,
+          place: placemarks,
         );
-        print('longitude: ${state?.longitude}');
-        print('latitude: ${state?.latitude}');
-        print('placemarks: ${state?.placemarks}');
+        return true; // success
       } else {
-        print('Location data is null');
         state = null;
+        return false; // failure
       }
     } catch (e) {
-      print('Failed to get current location: $e');
       state = null;
+      return false; // failure
     }
   }
 
@@ -78,10 +70,7 @@ class LocationNotifier extends StateNotifier<LocationModel?> {
       await prefs.remove('longitude');
 
       state = null;
-      print('Location removed successfully');
-    } catch (e) {
-      print('Failed to remove location: $e');
-    }
+    } catch (e) {}
   }
 
   Future<bool> _checkAndRequestService(Location location) async {

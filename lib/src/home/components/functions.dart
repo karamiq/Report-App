@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:app/data/models/fee_fine_model.dart';
 import 'package:app/data/providers/user_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import '../../../data/models/governorate_model.dart';
 import '../../../data/models/plate_characters_model.dart';
 import '../../../data/models/plate_types.dart';
@@ -117,7 +115,7 @@ Future<List<PlateTypeModel>> plteTaype(WidgetRef ref) async {
     print(await list);
     return list;
   } catch (e) {
-    throw Exception(e);
+    return [];
   }
 }
 

@@ -46,6 +46,7 @@ class HomePage extends HookConsumerWidget {
           child: ColumnPadded(
             gap: Insets.medium,
             children: [
+              const Gap(Insets.extraSmall),
               TakePicture(tokenPicture: (value) => picture = value),
               Form(
                 key: formKey,
@@ -54,7 +55,9 @@ class HomePage extends HookConsumerWidget {
               ElevatedButton(
                 onPressed: () async {
                   isLoading.value = true;
-                  if (loc == null) {
+                  if (!await ref
+                      .watch(locationProvider.notifier)
+                      .getCurrentLocation()) {
                     checkYourLocation(context);
                     isLoading.value = false;
                     return;
@@ -83,10 +86,10 @@ class HomePage extends HookConsumerWidget {
                             FeeFormState.governorateControllerId.text,
                         "images": [imageUrl],
                         "note": FeeFormState.notesController.text,
-                        "lat": loc.latitude.toString(),
-                        "lng": loc.longitude.toString(),
+                        "lat": loc!.lat.toString(),
+                        "lng": loc.lng.toString(),
                         "violationLocation":
-                            '${loc.placemarks!.locality}/${loc.placemarks!.subLocality}',
+                            '${loc.place!.locality}/${loc.place!.subLocality}',
                       };
                       VehicleFee vehicleFee = VehicleFee(
                           number:
@@ -98,7 +101,7 @@ class HomePage extends HookConsumerWidget {
                           governorate: FeeFormState.governorateController.text,
                           images: [imageUrl!],
                           violationLocation:
-                              '${loc.placemarks!.locality}/${loc.placemarks!.subLocality}');
+                              '${loc.place!.locality}/${loc.place!.subLocality}');
                       print(data);
                       //400 error
                       //await ref.read(authClientProvider).postViolation(data);

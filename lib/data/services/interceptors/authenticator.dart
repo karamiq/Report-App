@@ -14,8 +14,6 @@ class Authenticator extends Interceptor {
     // final token = authentication.build()?.token;
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    print('the token at the intersptor: $token');
-
     //if (isSignedIn) options.headers["Authorization"] = "Bearer $token";
     options.headers["Authorization"] = "Bearer $token";
 

@@ -67,7 +67,7 @@ class _FeeInfoBottomSheetState extends ConsumerState<_FeeInfoBottomSheet> {
               if (_formKey.currentState!.validate()) {
                 try {
                   final imageUrl = await postImage(ref, widget.path);
-                  final loc = location.placemarks;
+                  final loc = location.place;
 
                   //400 error
                   // await ref.read(authClientProvider).postViolation(data);

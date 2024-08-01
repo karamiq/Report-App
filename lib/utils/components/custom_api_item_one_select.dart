@@ -105,7 +105,10 @@ class _showSelectionBottomSheetState extends State<showSelectionBottomSheet> {
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('لا توجد عناصر'));
+          return Container(
+              height: 400,
+              alignment: Alignment.center,
+              child: const Text('لا توجد عناصر'));
         } else {
           if (_originalList.isEmpty) {
             _originalList = snapshot.data!;

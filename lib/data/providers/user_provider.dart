@@ -11,7 +11,6 @@ class UserNotifier extends StateNotifier<UserModel?> {
   Future<void> _loadUser() async {
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString('user');
-    print('current user: $state');
     if (jsonString != null) {
       final jsonMap = json.decode(jsonString) as Map<String, dynamic>;
       state = UserModel.fromJson(jsonMap);
