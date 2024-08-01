@@ -17,6 +17,7 @@ class ProfilePage extends ConsumerWidget {
     final userState = ref.watch(userProvider);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: 'الملف الشخصي'),

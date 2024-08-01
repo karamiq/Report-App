@@ -1,9 +1,10 @@
-import 'package:app/data/providers/location_model.dart';
+import 'package:app/data/providers/location_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart' as perHand;
 
 import '../../../common_lib.dart';
 
-Future<void> CheckYourLocation(BuildContext context) {
+Future<void> checkYourLocation(BuildContext context) {
   return showDialog(
     context: context,
     builder: (context) => CheckYourLocationDialog(),
@@ -44,12 +45,18 @@ class _CheckYourLocationDialogState
           width: 150,
           child: ElevatedButton(
             onPressed: () async {
+              if (!await perHand.openAppSettings()) {
+                return;
+              }
               setState(() {
                 _isLoading = true;
               });
               // Simulate a network call or location fetch
-              await ref.read(locationProvider.notifier).getCurrentLocation();
-              context.pop();
+
+              try {
+                await ref.read(locationProvider.notifier).getCurrentLocation();
+                context.pop();
+              } catch (e) {}
               setState(() {
                 _isLoading = false;
               });

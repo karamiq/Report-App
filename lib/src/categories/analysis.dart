@@ -24,6 +24,7 @@ class CategoriesPage extends ConsumerWidget {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: const CustomAppBar(title: 'صفحة الاحصائيات'),
       body: FutureBuilder<CommissionAnalysisModel>(
         future: fetchViolations(),
@@ -53,13 +54,13 @@ class CategoriesPage extends ConsumerWidget {
                       FeesInfoCard(
                         title: 'عدد الغرامات الاسبوعية',
                         icon: Assets.assetsSvgTrafficSignal,
-                        subTitle: commissionAnalysis!.totalPrice,
+                        subTitle: "${commissionAnalysis!.totalPrice}",
                         onIconPressed: () {},
                       ),
                       FeesInfoCard(
                         title: 'المبلغ الكلي للغرامات المسجلة',
                         icon: Assets.assetsSvgTrafficSignal,
-                        subTitle: commissionAnalysis.totalPrice,
+                        subTitle: "${commissionAnalysis.totalPrice}IQD",
                         onIconPressed: () {},
                       ),
                     ],
@@ -67,7 +68,8 @@ class CategoriesPage extends ConsumerWidget {
                   ViewedItemsTitle(
                     mainText: 'اخر المخالفات',
                     secontText: 'رؤية المزيد',
-                    onTap: () {},
+                    onTap: () =>
+                        context.pushNamed(RoutesDocument.recordOfViolations),
                   ),
                   ListView.separated(
                       shrinkWrap: true,
@@ -80,7 +82,7 @@ class CategoriesPage extends ConsumerWidget {
                                 .lastViolations[index].number
                                 .toString(),
                             violationType: commissionAnalysis
-                                .lastViolations[index].feeFines.type
+                                .lastViolations[index].feeFines.name
                                 .toString(),
                             price: commissionAnalysis
                                 .lastViolations[index].feeFines.amount

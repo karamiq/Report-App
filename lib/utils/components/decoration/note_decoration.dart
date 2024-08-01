@@ -7,7 +7,7 @@ InputDecoration customNoteDecoration({
   Color errorBorderColor = Colors.redAccent,
 }) {
   return InputDecoration(
-    labelText: labelText,
+    hintText: labelText,
     fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
     helperText: '',
     labelStyle: TextStyle(

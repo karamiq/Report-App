@@ -33,7 +33,6 @@ class ChartAnalysisSection extends StatelessWidget {
     return Card(
       color: Theme.of(context).colorScheme.primary.withOpacity(.5),
       child: Container(
-        height: MediaQuery.of(context).size.height * .5,
         padding: Insets.mediumAll,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,25 +46,29 @@ class ChartAnalysisSection extends StatelessWidget {
                   data: chartData),
             ),
             const Gap(Insets.medium),
-            const Spacer(),
             Padding(
               padding: Insets.mediumAll,
               child: ListView.builder(
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: ChartInfo(
-                              title: commissionAnalysis!
-                                  .violationCardAnalysis[index].name,
-                              data: commissionAnalysis!
-                                  .violationCardAnalysis[index].amount,
-                              color: colorList[index],
-                            ),
+                  itemBuilder: (context, index) {
+                    final isNextIndexValid = index + 1 <
+                        commissionAnalysis!.violationCardAnalysis.length;
+
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: ChartInfo(
+                            title: commissionAnalysis!
+                                .violationCardAnalysis[index].name,
+                            data: commissionAnalysis!
+                                .violationCardAnalysis[index].amount,
+                            color: colorList[index],
                           ),
+                        ),
+                        if (isNextIndexValid)
                           Expanded(
                             child: ChartInfo(
                               title: commissionAnalysis!
@@ -75,10 +78,10 @@ class ChartAnalysisSection extends StatelessWidget {
                               color: colorList[index + 1],
                             ),
                           ),
-                        ],
-                      ),
-                  itemCount:
-                      commissionAnalysis!.violationCardAnalysis.length - 1),
+                      ],
+                    );
+                  },
+                  itemCount: commissionAnalysis!.violationCardAnalysis.length),
             ),
           ],
         ),

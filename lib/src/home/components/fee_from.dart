@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:app/data/models/plate_characters_model.dart';
+import 'package:app/utils/components/custom_api_item_one_select.dart';
 import 'package:flutter/material.dart';
 import '../../../common_lib.dart';
-import '../../../utils/components/custom_api_item_select.dart';
+import '../../../utils/components/custom_api_item_two_select.dart';
 import '../../../utils/components/decoration/input_decoration.dart';
 import '../../../utils/components/decoration/note_decoration.dart';
 import 'functions.dart';
@@ -15,8 +16,8 @@ class FeeForm extends ConsumerStatefulWidget {
 }
 
 class FeeFormState extends ConsumerState<FeeForm> {
-  late TextEditingController governorateController;
-  late TextEditingController charController;
+  static late TextEditingController governorateController;
+  static late TextEditingController charController;
   static late TextEditingController plateNumberController;
   late TextEditingController violationTypeController;
   late TextEditingController feeFine;
@@ -26,15 +27,15 @@ class FeeFormState extends ConsumerState<FeeForm> {
   static late TextEditingController governorateControllerId;
   static late TextEditingController plateCharacterId;
   static late TextEditingController plateTypeId;
+  static late TextEditingController plateType;
   static late TextEditingController feeFinesId;
-  late Future<List<PlateCharacterModel>> charList;
   final FocusNode focusNode1 = FocusNode();
-  final FocusNode focusNode2 = FocusNode();
   final FocusNode focusNode3 = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    plateType = TextEditingController();
     feeNumberContorller = TextEditingController();
     governorateController = TextEditingController();
     charController = TextEditingController();
@@ -46,11 +47,19 @@ class FeeFormState extends ConsumerState<FeeForm> {
     plateCharacterId = TextEditingController();
     plateTypeId = TextEditingController();
     feeFinesId = TextEditingController();
-    charList = char(ref, governorateControllerId.text);
+    govs = gov(ref, null);
+    // Future<List<PlateCharacterModel>> charList =
+    //     char(ref, governorateControllerId.text, null);
+    fetch();
+  }
+
+  void fetch() async {
+    feeNumberContorller.text = await lastNumber(ref);
   }
 
   @override
   void dispose() {
+    plateType.dispose();
     feeNumberContorller.dispose();
     governorateController.dispose();
     charController.dispose();
@@ -63,7 +72,6 @@ class FeeFormState extends ConsumerState<FeeForm> {
     plateTypeId.dispose();
     feeFinesId.dispose();
     focusNode1.dispose();
-    focusNode2.dispose();
     super.dispose();
   }
 
@@ -75,9 +83,25 @@ class FeeFormState extends ConsumerState<FeeForm> {
     }
   }
 
+  String? numberValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'الحقل مطلوب';
+    }
+    final number = num.tryParse(value);
+    if (number == null) {
+      return 'ادخل رقم صالح';
+    }
+
+    return null;
+  }
+
+  Future<List<PlateCharacterModel>> charList = Future.value([]);
+  dynamic govs = [];
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ColumnPadded(
+      gap: Insets.extraSmall,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Gap(Insets.small),
@@ -85,63 +109,74 @@ class FeeFormState extends ConsumerState<FeeForm> {
           focusNode: focusNode1,
           keyboardType: TextInputType.number,
           controller: feeNumberContorller,
-          validator: validator,
+          validator: numberValidator,
           textInputAction: TextInputAction.next,
           decoration: customInputDecoration(
             suffixIcon: false,
-            prefixIcon: Assets.assetsSvgCarNumber,
             context: context,
             labelText: 'رقم المخالفة',
           ),
         ),
         TextFormField(
-          focusNode: focusNode2,
           keyboardType: TextInputType.number,
           controller: plateNumberController,
-          validator: validator,
-          textInputAction: TextInputAction.next,
+          validator: numberValidator,
           decoration: customInputDecoration(
             suffixIcon: false,
-            prefixIcon: Assets.assetsSvgCarNumber,
             context: context,
             labelText: 'رقم اللوحة',
           ),
+        ),
+        CustomApiItemSelectOne(
+          labelText: 'نوع اللوحة',
+          controller: plateType,
+          itemListFuture: plteTaype(ref),
+          onSelect: (value) {
+            try {
+              plateTypeId.text = value?.id;
+            } catch (e) {}
+          },
+          validator: validator,
         ),
         Row(
           children: [
             Expanded(
               flex: 2,
-              child: CustomApiItemSelect(
+              child: CustomApiItemSelectTwo(
+                enabled: governorateController.text.isNotEmpty,
                 labelText: 'الحرف',
+                fetchItems: (ref, govId, name) => char(ref, govId, name),
+                //  validator: validator,
+                govId: governorateControllerId.text,
                 controller: charController,
-                itemListFuture: charList,
-                onChanged: (value) async {
+                onSelect: (value) async {
                   try {
                     setState(() {
                       plateCharacterId.text = value.id;
                     });
                     final gg = await govById(ref, value.governorateId);
                     governorateController.text = gg?.name ?? '';
+                    governorateControllerId.text = value.governorateId;
                   } catch (e) {
                     print(e);
                   }
                 },
-                validator: validator,
               ),
             ),
             const Gap(Insets.small),
             Expanded(
               flex: 4,
-              child: CustomApiItemSelect(
+              child: CustomApiItemSelectOne(
                 labelText: 'المحافظة',
                 controller: governorateController,
-                itemListFuture: gov(ref),
-                onChanged: (value) async {
+                itemListFuture: gov(ref, null),
+                onSelect: (value) async {
+                  print(value);
                   setState(() {
-                    print("the selected gov id: ${value?.id}");
-                    print("the selected gov name: ${value?.name}");
-                    charList = char(ref, value?.id);
-                    governorateControllerId.text = value?.id ?? '';
+                    charList = char(ref, value?.id, null);
+                    try {
+                      governorateControllerId.text = value?.id;
+                    } catch (e) {}
                     charController.text = '';
                   });
                 },
@@ -150,11 +185,12 @@ class FeeFormState extends ConsumerState<FeeForm> {
             ),
           ],
         ),
-        CustomApiItemSelect(
+        CustomApiItemSelectOne(
           labelText: 'اختر نوع المخالفة',
           controller: feeFine,
           itemListFuture: feeFines(ref),
           validator: validator,
+          onSelect: (p0) => feeFinesId.text = p0?.id ?? '',
         ),
         const Gap(Insets.small),
         const Text(
@@ -180,13 +216,3 @@ class FeeFormState extends ConsumerState<FeeForm> {
     );
   }
 }
-/*
-   CustomApiItemSelect(
-          labelText: 'اختر نوع المخالفة',
-          controller: feeFine,
-          itemListFuture: feeFines(ref),
-          validator: validator,
-        ),
-        
-        
-    */

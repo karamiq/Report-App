@@ -1,70 +1,72 @@
 import 'dart:io';
-import 'package:app/common_lib.dart';
-import 'package:app/data/providers/location_model.dart';
-import 'package:app/data/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-
-import '../../data/models/ViechleFee.dart';
-import '../../data/services/clients/auth_client.dart';
+import 'package:app/common_lib.dart';
+import 'package:app/data/providers/location_provider.dart';
+import 'package:app/data/providers/user_provider.dart';
+import 'package:app/src/home/components/check_your_location_dialog.dart';
+import 'package:app/data/models/ViechleFee.dart';
+import 'components/car_picture.dart';
 import 'components/fee_from.dart';
 import 'components/functions.dart';
+import 'components/home_page_app_bar.dart';
+
+File? picture;
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formKey = useState<GlobalKey<FormState>>(GlobalKey<FormState>());
-    final user = ref.read(userProvider);
+    final formKey = useMemoized(() => GlobalKey<FormState>());
     final isLoading = useState(false);
-    File? picture;
-    final loc = ref.read(locationProvider);
+    final user = ref.watch(userProvider);
+    final loc = ref.watch(locationProvider);
+    useEffect(() {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ref.read(locationProvider.notifier).getCurrentLocation();
+      });
+      return null;
+    }, []);
+    void fetch() async {
+      FeeFormState.feeNumberContorller.text = await lastNumber(ref);
+    }
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      appBar: HomePageAppBar(
+        fetch: fetch,
+      ),
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
-        child: Padding(
-          padding: Insets.mediumAll,
+        child: SingleChildScrollView(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom + Insets.medium,
+            right: Insets.medium,
+            left: Insets.medium,
+          ),
           child: ColumnPadded(
             gap: Insets.medium,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Positioned(
-                    top: 40,
-                    right: 20,
-                    child: IconButton(
-                      onPressed: () =>
-                          context.pushNamed(RoutesDocument.profile),
-                      icon: SvgPicture.asset(Assets.assetsSvgProfile),
-                    ),
-                  ),
-                  Positioned(
-                    top: 40,
-                    left: 20,
-                    child: IconButton(
-                      onPressed: () =>
-                          context.pushNamed(RoutesDocument.categories),
-                      icon: SvgPicture.asset(Assets.assetsSvgCategory),
-                    ),
-                  ),
-                ],
-              ),
               TakePicture(tokenPicture: (value) => picture = value),
               Form(
-                key: formKey.value,
+                key: formKey,
                 child: const FeeForm(),
               ),
-              const Spacer(),
               ElevatedButton(
                 onPressed: () async {
                   isLoading.value = true;
-                  if (formKey.value.currentState!.validate()) {
+                  if (loc == null) {
+                    checkYourLocation(context);
+                    isLoading.value = false;
+                    return;
+                  }
+                  if (picture == null) {
+                    Utils.showErrorSnackBar('التقط صورة للسيارة المخالفة');
+                    isLoading.value = false;
+                    return;
+                  }
+                  if (formKey.currentState!.validate() && picture != null) {
                     try {
                       final imageUrl = await postImage(ref, picture!);
-                      // Assuming FeeFormState and user are already defined and initialized
 
                       Map<String, dynamic> data = {
                         "number":
@@ -80,22 +82,30 @@ class HomePage extends HookConsumerWidget {
                         "governorateId":
                             FeeFormState.governorateControllerId.text,
                         "images": [imageUrl],
-                        "note": FeeFormState.notesController,
-                        "lat": loc!.latitude,
-                        "lng": loc.longitude,
+                        "note": FeeFormState.notesController.text,
+                        "lat": loc.latitude.toString(),
+                        "lng": loc.longitude.toString(),
                         "violationLocation":
                             '${loc.placemarks!.locality}/${loc.placemarks!.subLocality}',
                       };
-                      VehicleFee vehicleFee = VehicleFee.fromJson(data);
-
+                      VehicleFee vehicleFee = VehicleFee(
+                          number:
+                              int.parse(FeeFormState.feeNumberContorller.text),
+                          plateNumber: FeeFormState.plateNumberController.text,
+                          plateTypeId: FeeFormState.plateTypeId.text,
+                          plateCharacter: FeeFormState.charController.text,
+                          creationDate: DateTime.now(),
+                          governorate: FeeFormState.governorateController.text,
+                          images: [imageUrl!],
+                          violationLocation:
+                              '${loc.placemarks!.locality}/${loc.placemarks!.subLocality}');
+                      print(data);
                       //400 error
-                      await ref
-                          .read(authClientProvider)
-                          .postViolation(vehicleFee);
+                      //await ref.read(authClientProvider).postViolation(data);
                       context.pushNamed(RoutesDocument.feeIsSend,
                           extra: vehicleFee);
                     } catch (e) {
-                      null;
+                      print(e);
                     }
                   } else {
                     isLoading.value = false;
@@ -120,96 +130,3 @@ class HomePage extends HookConsumerWidget {
     );
   }
 }
-
-class TakePicture extends HookWidget {
-  const TakePicture({
-    super.key,
-    required this.tokenPicture,
-  });
-  final ValueChanged<File> tokenPicture;
-
-  @override
-  Widget build(BuildContext context) {
-    final picturePath = useState<File?>(null);
-
-    Future<void> takePicture() async {
-      try {
-        final picker = ImagePicker();
-        final pickedFile = await picker.pickImage(source: ImageSource.camera);
-        if (pickedFile != null) {
-          final path = File(pickedFile.path);
-          picturePath.value = path;
-          print(picturePath);
-          tokenPicture(path);
-        }
-      } catch (e) {}
-    }
-
-    return GestureDetector(
-      onTap: takePicture,
-      child: Container(
-        height: 140,
-        width: double.infinity,
-        alignment: Alignment.center,
-        decoration: const BoxDecoration(
-          borderRadius: BorderSize.mediumRadius,
-        ),
-        child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderSize.mediumRadius,
-              color: Colors.black.withOpacity(.5),
-            ),
-            child: picturePath.value != null
-                ? ClipRRect(
-                    borderRadius: BorderSize.mediumRadius,
-                    child: Image.file(
-                      picturePath.value!,
-                      width: double.infinity,
-                      height: double.infinity,
-                      fit: BoxFit.fill,
-                    ),
-                  )
-                : const Text(
-                    'آضافة صورة',
-                    style: TextStyle(
-                        fontSize: FontsTheme.bigSize,
-                        fontWeight: FontsTheme.mediumBigWeight,
-                        color: Colors.white),
-                  )),
-      ),
-    );
-  }
-}
-
-
-
-/*
-Stack(
-        children: [
-          if (cameraState.cameraController != null)
-            Positioned.fill(
-              child: CameraPreview(cameraState.cameraController!),
-            ),
-          const CameraControls(),
-          Positioned(
-            top: 40,
-            right: 20,
-            child: IconButton(
-              onPressed: () => context.pushNamed(RoutesDocument.profile),
-              icon: SvgPicture.asset(Assets.assetsSvgProfile),
-            ),
-          ),
-          Positioned(
-            top: 40,
-            left: 20,
-            child: IconButton(
-              onPressed: () => context.pushNamed(RoutesDocument.categories),
-              icon: SvgPicture.asset(Assets.assetsSvgCategory),
-            ),
-          ),
-        ],
-      ),
-*/

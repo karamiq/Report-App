@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:app/data/models/ViechleFee.dart';
-import 'package:app/data/providers/location_model.dart';
+import 'package:app/data/providers/location_provider.dart';
 import 'package:flutter/material.dart';
 import '../../../common_lib.dart';
 import 'check_your_location_dialog.dart';
@@ -60,7 +60,7 @@ class _FeeInfoBottomSheetState extends ConsumerState<_FeeInfoBottomSheet> {
             onPressed: () async {
               setState(() => isLoading = true);
               if (location == null) {
-                CheckYourLocation(context);
+                checkYourLocation(context);
                 setState(() => isLoading = false);
                 return;
               }

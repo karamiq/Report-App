@@ -121,9 +121,15 @@ class AppTheme {
     );
   }
 
-  Color _buildscaffoldBackgroundColorTheme(brightness) {
+  Color _buildscaffoldBackgroundColorTheme(Brightness brightness) {
+    Color? colorj;
+    if (brightness == Brightness.light) {
+      colorj = Colors.white;
+    } else if (brightness == Brightness.dark) {
+      colorj = Colors.black54;
+    }
     final colorScheme = _buildColorScheme(brightness);
-    return colorScheme.surface;
+    return colorj!;
   }
 
   TextButtonThemeData _buildTextButtonTheme(Brightness brightness) {

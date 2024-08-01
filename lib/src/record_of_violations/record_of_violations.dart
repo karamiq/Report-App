@@ -44,7 +44,7 @@ class RecordOfViolationsPage extends ConsumerWidget {
                     .toList();
                 return ViolationCard(
                   recieptNumber: data[index].number.toString(),
-                  violationType: data[index].feeFines.type.toString(),
+                  violationType: data[index].feeFines.name,
                   price: data[index].feeFines.amount.toString(),
                 );
               },

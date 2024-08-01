@@ -11,7 +11,7 @@ class FeesInfoCard extends StatelessWidget {
   });
 
   final String title;
-  final int subTitle;
+  final String subTitle;
   final String icon;
   final Function()? onIconPressed;
 
@@ -41,7 +41,7 @@ class FeesInfoCard extends StatelessWidget {
             ),
             const Gap(Insets.small),
             Text(
-              '${subTitle}IQD',
+              '$subTitle',
               style: TextStyle(
                 color: Theme.of(context).colorScheme.onPrimaryContainer,
                 fontWeight: FontsTheme.bigWeight,

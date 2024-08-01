@@ -35,14 +35,14 @@ class FeeDetailesPage extends StatelessWidget {
               const Gap(Insets.medium),
               FeeReceiptAndDate(
                 feeDate: feeDetailes.creationDate,
-                receiptNumber: 7857575,
+                receiptNumber: feeDetailes.number,
               ),
               const Gap(Insets.medium),
               FeeFullDetailes(
                 plateNumber: feeDetailes.number.toString(),
-                governorate: feeDetailes.violationLocation,
-                plateLetter: 'ف',
-                routeName: 'بغداد/بصرة',
+                governorate: feeDetailes.governorate,
+                plateLetter: feeDetailes.plateCharacter,
+                routeName: feeDetailes.violationLocation,
               ),
             ]),
       ),
@@ -61,43 +61,47 @@ class FeeImageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showDialog(
-          context: context,
-          builder: (context) => Dialog(
-            backgroundColor: Colors.transparent,
-            child: SizedBox(
-              width: 400,
-              height: 400,
-              child: ClipRRect(
-                borderRadius: BorderSize.smallRadius,
-                child: Image.network(
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) {
-                      return child;
-                    } else {
-                      return SizedBox(
-                        width: 400,
-                        height: 400,
-                        child: Card(
-                          child: Center(
-                            child: CircularProgressIndicator(
-                              value: loadingProgress.expectedTotalBytes != null
-                                  ? loadingProgress.cumulativeBytesLoaded /
-                                      (loadingProgress.expectedTotalBytes ?? 1)
-                                  : null,
+        try {
+          showDialog(
+            context: context,
+            builder: (context) => Dialog(
+              backgroundColor: Colors.transparent,
+              child: SizedBox(
+                width: 400,
+                height: 400,
+                child: ClipRRect(
+                  borderRadius: BorderSize.smallRadius,
+                  child: Image.network(
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) {
+                        return child;
+                      } else {
+                        return SizedBox(
+                          width: 400,
+                          height: 400,
+                          child: Card(
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        (loadingProgress.expectedTotalBytes ??
+                                            1)
+                                    : null,
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }
-                  },
-                  imagePath,
-                  fit: BoxFit.cover,
+                        );
+                      }
+                    },
+                    imagePath,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-          ),
-        );
+          );
+        } catch (e) {}
       },
       child: Stack(
         children: [

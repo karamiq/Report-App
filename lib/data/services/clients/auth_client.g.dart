@@ -46,12 +46,11 @@ class _AuthClient implements AuthClient {
   }
 
   @override
-  Future<void> postViolation(VehicleFee violation) async {
+  Future<void> postViolation(dynamic violation) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(violation.toJson());
+    final _data = violation;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,
@@ -124,36 +123,45 @@ class _AuthClient implements AuthClient {
   }
 
   @override
-  Future<DataModel> plateCharacter() async {
+  Future<dynamic> plateCharacter(
+    String? name,
+    String? govId,
+    int? currentPage,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'name': name,
+      r'governorateId': govId,
+      r'pageNumber': currentPage,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<DataModel>(Options(
+    final _result = await _dio.fetch(_setStreamType<dynamic>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              '/mobile/plate-characters',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final _value = DataModel.fromJson(_result.data!);
+        .compose(
+          _dio.options,
+          '/mobile/plate-characters',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+    final _value = _result.data;
     return _value;
   }
 
   @override
-  Future<DataModel> governorate() async {
+  Future<DataModel> governorate(String? name) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'name': name};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -205,6 +213,33 @@ class _AuthClient implements AuthClient {
   }
 
   @override
+  Future<DataModel> platyTypeGet() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<DataModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/mobile/plate-types',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final _value = DataModel.fromJson(_result.data!);
+    return _value;
+  }
+
+  @override
   Future<DataModel> feeFines() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -228,6 +263,39 @@ class _AuthClient implements AuthClient {
               baseUrl,
             ))));
     final _value = DataModel.fromJson(_result.data!);
+    return _value;
+  }
+
+  @override
+  Future<dynamic> lastNumberGet(
+    String? garageId,
+    int type,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'garageId': garageId,
+      r'type': type,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch(_setStreamType<dynamic>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/vehicle-receipts/last-number',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+    final _value = _result.data;
     return _value;
   }
 

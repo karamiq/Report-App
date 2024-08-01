@@ -1,3 +1,5 @@
+import 'package:retrofit/retrofit.dart';
+
 import '../../models/ViechleFee.dart';
 import '../../models/commission_analysis_model.dart';
 import '../../models/data_model.dart';
@@ -18,17 +20,26 @@ abstract class AuthClient {
   @POST('/login')
   Future<UserModel> login(@Body() dynamic data);
   @POST("/commission/vehicle-fees")
-  Future<void> postViolation(@Body() VehicleFee violation);
+  Future<void> postViolation(@Body() dynamic violation);
   @POST('/file')
   Future<dynamic> postFile(@Body() FormData image);
   @GET('/commission/analysis')
   Future<CommissionAnalysisModel> commissionAnalysis();
   @GET('/mobile/plate-characters')
-  Future<DataModel> plateCharacter();
+  Future<dynamic> plateCharacter(
+      @Query('name') String? name,
+      @Query('governorateId') String? govId,
+      @Query("pageNumber") int? currentPage);
   @GET('/mobile/governorates')
-  Future<DataModel> governorate();
+  Future<DataModel> governorate(@Query('name') String? name);
   @GET('/commission/vehicle-fees')
   Future<DataModel> vichleFeeGet();
+  @GET('/mobile/plate-types')
+  Future<DataModel> platyTypeGet();
   @GET('/fee-fines')
   Future<DataModel> feeFines();
+
+  @GET('/vehicle-receipts/last-number')
+  Future<dynamic> lastNumberGet(
+      @Query("garageId") String? garageId, @Query("type") int type);
 }
