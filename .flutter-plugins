@@ -36,6 +36,7 @@ permission_handler_android=/Users/karam/.pub-cache/hosted/pub.dev/permission_han
 permission_handler_apple=/Users/karam/.pub-cache/hosted/pub.dev/permission_handler_apple-9.4.5/
 permission_handler_html=/Users/karam/.pub-cache/hosted/pub.dev/permission_handler_html-0.1.1/
 permission_handler_windows=/Users/karam/.pub-cache/hosted/pub.dev/permission_handler_windows-0.2.1/
+restart_app=/Users/karam/.pub-cache/hosted/pub.dev/restart_app-1.2.1/
 shared_preferences=/Users/karam/.pub-cache/hosted/pub.dev/shared_preferences-2.2.3/
 shared_preferences_android=/Users/karam/.pub-cache/hosted/pub.dev/shared_preferences_android-2.2.3/
 shared_preferences_foundation=/Users/karam/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.4.0/

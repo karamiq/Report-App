@@ -54,6 +54,7 @@ MERGED from [:image_cropper] /Users/karam/Documents/GitHub/Report-App/build/imag
 MERGED from [:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-20:12
 MERGED from [:path_provider_android] /Users/karam/Documents/GitHub/Report-App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:permission_handler_android] /Users/karam/Documents/GitHub/Report-App/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:restart_app] /Users/karam/Documents/GitHub/Report-App/build/restart_app/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:shared_preferences_android] /Users/karam/Documents/GitHub/Report-App/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:sqflite] /Users/karam/Documents/GitHub/Report-App/build/sqflite/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
@@ -197,6 +198,8 @@ MERGED from [:path_provider_android] /Users/karam/Documents/GitHub/Report-App/bu
 MERGED from [:path_provider_android] /Users/karam/Documents/GitHub/Report-App/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:permission_handler_android] /Users/karam/Documents/GitHub/Report-App/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:permission_handler_android] /Users/karam/Documents/GitHub/Report-App/build/permission_handler_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:restart_app] /Users/karam/Documents/GitHub/Report-App/build/restart_app/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:restart_app] /Users/karam/Documents/GitHub/Report-App/build/restart_app/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:shared_preferences_android] /Users/karam/Documents/GitHub/Report-App/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:shared_preferences_android] /Users/karam/Documents/GitHub/Report-App/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:sqflite] /Users/karam/Documents/GitHub/Report-App/build/sqflite/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41

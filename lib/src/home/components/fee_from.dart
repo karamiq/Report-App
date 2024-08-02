@@ -22,7 +22,7 @@ class FeeFormState extends ConsumerState<FeeForm> {
   late TextEditingController violationTypeController;
   static late TextEditingController feeFine;
   static late TextEditingController notesController;
-  static late TextEditingController feeNumberContorller;
+  static TextEditingController feeNumberContorller = TextEditingController();
   ///////////////////////////////////////////////////
   static late TextEditingController governorateControllerId;
   static late TextEditingController plateCharacterId;
@@ -55,7 +55,8 @@ class FeeFormState extends ConsumerState<FeeForm> {
 
   void fetch() async {
     try {
-      feeNumberContorller.text = await lastNumber(ref);
+      feeNumberContorller = TextEditingController(text: await lastNumber(ref));
+      setState(() {});
     } catch (e) {}
   }
 
@@ -105,28 +106,38 @@ class FeeFormState extends ConsumerState<FeeForm> {
       gap: Insets.extraSmall,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Gap(Insets.small),
-        TextFormField(
-          focusNode: focusNode1,
-          keyboardType: TextInputType.number,
-          controller: feeNumberContorller,
-          validator: numberValidator,
-          textInputAction: TextInputAction.next,
-          decoration: customInputDecoration(
-            suffixIcon: false,
-            context: context,
-            labelText: 'رقم المخالفة',
-          ),
-        ),
-        TextFormField(
-          keyboardType: TextInputType.number,
-          controller: plateNumberController,
-          validator: numberValidator,
-          decoration: customInputDecoration(
-            suffixIcon: false,
-            context: context,
-            labelText: 'رقم اللوحة',
-          ),
+        Center(child: SvgPicture.asset(Assets.assetsSvgArrowUp)),
+        const Gap(Insets.medium),
+        Row(
+          children: [
+            Expanded(
+              child: TextFormField(
+                focusNode: focusNode1,
+                keyboardType: TextInputType.number,
+                controller: feeNumberContorller,
+                validator: numberValidator,
+                textInputAction: TextInputAction.next,
+                decoration: customInputDecoration(
+                  suffixIcon: false,
+                  context: context,
+                  labelText: 'رقم المخالفة',
+                ),
+              ),
+            ),
+            const Gap(Insets.small),
+            Expanded(
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                controller: plateNumberController,
+                validator: numberValidator,
+                decoration: customInputDecoration(
+                  suffixIcon: false,
+                  context: context,
+                  labelText: 'رقم اللوحة',
+                ),
+              ),
+            ),
+          ],
         ),
         CustomApiItemSelectOne(
           labelText: 'نوع اللوحة',
