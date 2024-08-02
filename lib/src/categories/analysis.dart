@@ -13,19 +13,23 @@ class CategoriesPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Future<CommissionAnalysisModel> fetchViolations() async {
-      final response = await ref.read(authClientProvider).commissionAnalysis();
-      final data = CommissionAnalysisModel.fromJson(response);
-      return data;
+    Future<CommissionAnalysisModel?> fetchViolations() async {
+      try {
+        final response =
+            await ref.read(authClientProvider).commissionAnalysis();
+        final data = CommissionAnalysisModel.fromJson(response);
+        return data;
+      } catch (e) {}
+      return null;
     }
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: const CustomAppBar(title: 'صفحة الاحصائيات'),
-      body: FutureBuilder<CommissionAnalysisModel>(
+      body: FutureBuilder<CommissionAnalysisModel?>(
         future: fetchViolations(),
         builder: (BuildContext context,
-            AsyncSnapshot<CommissionAnalysisModel> snapshot) {
+            AsyncSnapshot<CommissionAnalysisModel?> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
@@ -33,7 +37,8 @@ class CategoriesPage extends ConsumerWidget {
           } else if (!snapshot.hasData || snapshot.data == null) {
             return Container(
                 alignment: Alignment.center,
-                child: const Center(child: Text('لاتوجد معلومات')));
+                child: const Center(
+                    child: Text('عذرًا، ليس لديك إذن للوصول إلى هذه الصفحة.')));
           } else {
             final commissionAnalysis = snapshot.data;
             return SingleChildScrollView(
@@ -43,7 +48,7 @@ class CategoriesPage extends ConsumerWidget {
                 gap: Insets.large,
                 children: [
                   ChartAnalysisSection(
-                    commissionAnalysis: commissionAnalysis,
+                    commissionAnalysis: commissionAnalysis!,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,14 +57,13 @@ class CategoriesPage extends ConsumerWidget {
                         title: ' عدد الغرامات المسجلة',
                         icon: Assets.assetsSvgTrafficSignal,
                         subTitle:
-                            commissionAnalysis?.numberOfViolations.toString() ??
-                                '',
+                            commissionAnalysis.numberOfViolations.toString(),
                         onIconPressed: () {},
                       ),
                       FeesInfoCard(
                         title: 'المبلغ الكلي للغرامات المسجلة',
                         icon: Assets.assetsSvgTrafficSignal,
-                        subTitle: "${commissionAnalysis?.totalPrice}IQD",
+                        subTitle: "${commissionAnalysis.totalPrice}IQD",
                         onIconPressed: () {},
                       ),
                     ],
@@ -70,11 +74,11 @@ class CategoriesPage extends ConsumerWidget {
                     onTap: () =>
                         context.pushNamed(RoutesDocument.recordOfViolations),
                   ),
-                  commissionAnalysis!.lastViolations.isNotEmpty
+                  commissionAnalysis.lastViolations.isNotEmpty
                       ? ListView.separated(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          itemCount: commissionAnalysis!.lastViolations.length,
+                          itemCount: commissionAnalysis.lastViolations.length,
                           separatorBuilder: (context, index) =>
                               const Gap(Insets.medium),
                           itemBuilder: (context, index) => ViolationCard(

@@ -1,4 +1,5 @@
 import 'package:app/common_lib.dart';
+import 'package:app/data/providers/camera_provider.dart';
 import 'package:app/data/providers/user_provider.dart';
 import 'package:app/data/services/clients/auth_client.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,9 @@ class LoginPage extends HookConsumerWidget {
     final passwordController = useTextEditingController();
     final userState = ref.watch(userProvider.notifier);
     final isLoading = useState<bool>(false);
+    useEffect(() {
+      ref.read(cameraNotifierProvider.notifier).initializeCamera();
+    }, []);
 
     void signIn() async {
       if (!formKey.currentState!.validate()) {

@@ -12,30 +12,31 @@ class RecordOfViolationsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Future<DataModel> fetchViolations() async {
+    Future<DataModel?> fetchViolations() async {
       try {
-        dynamic response = ref.read(authClientProvider).vichleFeeGet();
+        final response = await ref.read(authClientProvider).vichleFeeGet();
         return response;
       } catch (e) {
-        throw Exception(e);
+        return null;
       }
     }
 
     return Scaffold(
       appBar: const CustomAppBar(title: 'سجل المخالفات'),
-      body: FutureBuilder<DataModel>(
+      body: FutureBuilder<DataModel?>(
         future: fetchViolations(),
-        builder: (BuildContext context, AsyncSnapshot<DataModel> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<DataModel?> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (!snapshot.hasData ||
-              snapshot.data == null ||
-              snapshot.data?.data.length == 0) {
+          } else if (!snapshot.hasData || snapshot.data == null) {
+            return const Center(
+                child: Text('عذرًا، ليس لديك إذن للوصول إلى هذه الصفحة.'));
+          } else if (snapshot.data!.data.isEmpty) {
             return const Center(child: Text('لم يتم العثور على مخالفات.'));
           } else {
-            final violations = snapshot.data;
+            final violations = snapshot.data!;
             return ListView.separated(
               padding: Insets.mediumAll,
               itemBuilder: (context, index) {
@@ -51,7 +52,7 @@ class RecordOfViolationsPage extends ConsumerWidget {
                 );
               },
               separatorBuilder: (context, index) => const Gap(Insets.medium),
-              itemCount: violations!.data.length,
+              itemCount: violations.data.length,
             );
           }
         },
