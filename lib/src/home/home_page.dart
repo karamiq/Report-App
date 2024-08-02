@@ -27,7 +27,7 @@ class HomePage extends HookConsumerWidget {
       });
       return null;
     }, []);
-    void fetch() async {
+    Future<void> fetch() async {
       FeeFormState.feeNumberContorller.text = await lastNumber(ref);
     }
 
@@ -124,11 +124,10 @@ class HomePage extends HookConsumerWidget {
                             TakePictureState.picturePath = null;
                             picture = null;
 
-                            context.pushNamed(RoutesDocument.feeIsSend,
+                            await context.pushNamed(RoutesDocument.feeIsSend,
                                 extra: vehicleFee);
-                          } catch (e) {
-                            print(e);
-                          }
+                            await fetch();
+                          } catch (e) {}
                         } else {
                           isLoading.value = false;
                           return;
