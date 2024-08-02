@@ -31,7 +31,9 @@ class CategoriesPage extends ConsumerWidget {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data == null) {
-            return const Center(child: Text('No data available'));
+            return Container(
+                alignment: Alignment.center,
+                child: const Center(child: Text('لاتوجد معلومات')));
           } else {
             final commissionAnalysis = snapshot.data;
             return SingleChildScrollView(
@@ -68,23 +70,27 @@ class CategoriesPage extends ConsumerWidget {
                     onTap: () =>
                         context.pushNamed(RoutesDocument.recordOfViolations),
                   ),
-                  ListView.separated(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: commissionAnalysis!.lastViolations.length,
-                      separatorBuilder: (context, index) =>
-                          const Gap(Insets.medium),
-                      itemBuilder: (context, index) => ViolationCard(
-                            recieptNumber: commissionAnalysis
-                                .lastViolations[index].number
-                                .toString(),
-                            violationType: commissionAnalysis
-                                .lastViolations[index].feeFines.name
-                                .toString(),
-                            price: commissionAnalysis
-                                .lastViolations[index].feeFines.amount
-                                .toString(),
-                          )),
+                  commissionAnalysis!.lastViolations.isNotEmpty
+                      ? ListView.separated(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: commissionAnalysis!.lastViolations.length,
+                          separatorBuilder: (context, index) =>
+                              const Gap(Insets.medium),
+                          itemBuilder: (context, index) => ViolationCard(
+                                recieptNumber: commissionAnalysis
+                                    .lastViolations[index].number
+                                    .toString(),
+                                violationType: commissionAnalysis
+                                    .lastViolations[index].feeFines.name
+                                    .toString(),
+                                price: commissionAnalysis
+                                    .lastViolations[index].feeFines.amount
+                                    .toString(),
+                              ))
+                      : const Center(
+                          child: Text('لم يتم العثور على مخالفات.'),
+                        ),
                 ],
               ),
             );

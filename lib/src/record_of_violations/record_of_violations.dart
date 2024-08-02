@@ -30,7 +30,9 @@ class RecordOfViolationsPage extends ConsumerWidget {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (!snapshot.hasData || snapshot.data == null) {
+          } else if (!snapshot.hasData ||
+              snapshot.data == null ||
+              snapshot.data?.data.length == 0) {
             return const Center(child: Text('لم يتم العثور على مخالفات.'));
           } else {
             final violations = snapshot.data;
