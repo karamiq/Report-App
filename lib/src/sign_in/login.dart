@@ -70,14 +70,15 @@ class LoginPage extends HookConsumerWidget {
                 hintText: 'الحساب',
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'ادخل الحساب';
+                    return 'هذا الحقل مطلوب';
                   }
                   return null;
                 },
               ),
-              CustomTextFormField(
-                hintText: 'كلمة السر',
+              PasswordFormField(
                 controller: passwordController,
+                label: 'كلمة السر',
+                hintText: '',
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'ادخل الرمز';

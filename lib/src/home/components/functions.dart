@@ -75,10 +75,9 @@ Future<List<PlateCharacterModel>> char(
                 PlateCharacterModel.fromJson(json as Map<String, dynamic>))
             .toList();
         allData.addAll(dataList);
-
         totalPages = response['totalPages'] as int;
       } else {
-        throw Exception('Unexpected response format');
+        return [];
       }
       currentPage++;
     }

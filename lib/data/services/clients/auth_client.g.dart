@@ -185,9 +185,10 @@ class _AuthClient implements AuthClient {
   }
 
   @override
-  Future<DataModel> vichleFeeGet() async {
+  Future<DataModel> vichleFeeGet(int? pageNumber) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'pageNumber': pageNumber};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio

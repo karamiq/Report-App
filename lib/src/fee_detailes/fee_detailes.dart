@@ -30,7 +30,9 @@ class FeeDetailesPage extends StatelessWidget {
                     fontSize: FontsTheme.mediumSize),
               ),
               FeeImageView(
-                imagePath: feeDetailes.images.first,
+                imagePath: feeDetailes.images.isNotEmpty
+                    ? feeDetailes.images.first
+                    : '',
               ),
               const Gap(Insets.medium),
               FeeReceiptAndDate(
@@ -74,6 +76,8 @@ class FeeImageView extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderSize.smallRadius,
                   child: Image.network(
+                    imagePath,
+                    fit: BoxFit.cover,
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) {
                         return child;
@@ -96,8 +100,23 @@ class FeeImageView extends StatelessWidget {
                         );
                       }
                     },
-                    imagePath,
-                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return SizedBox(
+                        width: 400,
+                        height: 400,
+                        child: Card(
+                          child: Center(
+                            child: Text(
+                              'فشل تحميل الصورة',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.error,
+                                fontSize: FontsTheme.bigSize,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

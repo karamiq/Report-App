@@ -1,3 +1,5 @@
+import 'package:app/data/models/_models.dart';
+
 import '../../models/data_model.dart';
 import '../../models/user_model.dart';
 import '_clients.dart';
@@ -28,7 +30,7 @@ abstract class AuthClient {
   @GET('/mobile/governorates')
   Future<DataModel> governorate(@Query('name') String? name);
   @GET('/commission/vehicle-fees')
-  Future<DataModel> vichleFeeGet();
+  Future<DataModel> vichleFeeGet(@Query('pageNumber') int? pageNumber);
   @GET('/mobile/plate-types')
   Future<DataModel> platyTypeGet();
   @GET('/fee-fines')

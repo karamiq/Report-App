@@ -82,15 +82,8 @@ class CategoriesPage extends ConsumerWidget {
                           separatorBuilder: (context, index) =>
                               const Gap(Insets.medium),
                           itemBuilder: (context, index) => ViolationCard(
-                                recieptNumber: commissionAnalysis
-                                    .lastViolations[index].number
-                                    .toString(),
-                                violationType: commissionAnalysis
-                                    .lastViolations[index].feeFines.name
-                                    .toString(),
-                                price: commissionAnalysis
-                                    .lastViolations[index].feeFines.amount
-                                    .toString(),
+                                violation:
+                                    commissionAnalysis.lastViolations[index],
                               ))
                       : const Center(
                           child: Text('لم يتم العثور على مخالفات.'),

@@ -1,7 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import '../models/camera_model.dart';
 
 class CameraNotifier extends StateNotifier<CameraState> {

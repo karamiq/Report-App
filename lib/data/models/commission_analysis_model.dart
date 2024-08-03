@@ -31,32 +31,32 @@ class ViolationCardAnalysis with _$ViolationCardAnalysis {
 class LastViolation with _$LastViolation {
   factory LastViolation({
     required int number,
-    required String userId,
-    required String userFullName,
-    required String userGarageId,
+    required String? userId,
+    required String? userFullName,
+    required String? userGarageId,
     String? userGarageName,
     String? garageGovernorateName,
-    required String vehicleId,
+    required String? vehicleId,
     required String? vehicleChassisNumber,
-    required String vehiclePlateCharacterId,
-    required String vehiclePlateCharacterName,
+    required String? vehiclePlateCharacterId,
+    required String? vehiclePlateCharacterName,
     String? vehiclePlateType,
-    required String vehicleGovernorateId,
+    required String? vehicleGovernorateId,
     String? vehicleGovernorateName,
-    required String plateNumber,
+    required String? plateNumber,
     required FeeFines feeFines,
     required bool isPaid,
-    required List<dynamic> images,
+    required List<String> images,
     required int duplicateCount,
     required int amount,
     required int totalAmount,
     String? lat,
     String? lng,
     required int invoiceNumber,
-    required String garageId,
+    required String? garageId,
     String? garageName,
     String? paymentGarageId,
-    dynamic paymentGarage,
+    GaragePayment? paymentGarage,
     int? paymentReceiptNumber,
     String? paymentDate,
     required int status,
@@ -84,4 +84,18 @@ class FeeFines with _$FeeFines {
 
   factory FeeFines.fromJson(Map<String, dynamic> json) =>
       _$FeeFinesFromJson(json);
+}
+
+@freezed
+class GaragePayment with _$GaragePayment {
+  factory GaragePayment({
+    required String? id,
+    required String? name,
+    required String? address,
+    required String? phone,
+    required String? email,
+  }) = _GaragePayment;
+
+  factory GaragePayment.fromJson(Map<String, dynamic> json) =>
+      _$GaragePaymentFromJson(json);
 }

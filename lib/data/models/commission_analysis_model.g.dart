@@ -45,32 +45,36 @@ Map<String, dynamic> _$$ViolationCardAnalysisImplToJson(
 _$LastViolationImpl _$$LastViolationImplFromJson(Map<String, dynamic> json) =>
     _$LastViolationImpl(
       number: (json['number'] as num).toInt(),
-      userId: json['userId'] as String,
-      userFullName: json['userFullName'] as String,
-      userGarageId: json['userGarageId'] as String,
+      userId: json['userId'] as String?,
+      userFullName: json['userFullName'] as String?,
+      userGarageId: json['userGarageId'] as String?,
       userGarageName: json['userGarageName'] as String?,
       garageGovernorateName: json['garageGovernorateName'] as String?,
-      vehicleId: json['vehicleId'] as String,
+      vehicleId: json['vehicleId'] as String?,
       vehicleChassisNumber: json['vehicleChassisNumber'] as String?,
-      vehiclePlateCharacterId: json['vehiclePlateCharacterId'] as String,
-      vehiclePlateCharacterName: json['vehiclePlateCharacterName'] as String,
+      vehiclePlateCharacterId: json['vehiclePlateCharacterId'] as String?,
+      vehiclePlateCharacterName: json['vehiclePlateCharacterName'] as String?,
       vehiclePlateType: json['vehiclePlateType'] as String?,
-      vehicleGovernorateId: json['vehicleGovernorateId'] as String,
+      vehicleGovernorateId: json['vehicleGovernorateId'] as String?,
       vehicleGovernorateName: json['vehicleGovernorateName'] as String?,
-      plateNumber: json['plateNumber'] as String,
+      plateNumber: json['plateNumber'] as String?,
       feeFines: FeeFines.fromJson(json['feeFines'] as Map<String, dynamic>),
       isPaid: json['isPaid'] as bool,
-      images: json['images'] as List<dynamic>,
+      images:
+          (json['images'] as List<dynamic>).map((e) => e as String).toList(),
       duplicateCount: (json['duplicateCount'] as num).toInt(),
       amount: (json['amount'] as num).toInt(),
       totalAmount: (json['totalAmount'] as num).toInt(),
       lat: json['lat'] as String?,
       lng: json['lng'] as String?,
       invoiceNumber: (json['invoiceNumber'] as num).toInt(),
-      garageId: json['garageId'] as String,
+      garageId: json['garageId'] as String?,
       garageName: json['garageName'] as String?,
       paymentGarageId: json['paymentGarageId'] as String?,
-      paymentGarage: json['paymentGarage'],
+      paymentGarage: json['paymentGarage'] == null
+          ? null
+          : GaragePayment.fromJson(
+              json['paymentGarage'] as Map<String, dynamic>),
       paymentReceiptNumber: (json['paymentReceiptNumber'] as num?)?.toInt(),
       paymentDate: json['paymentDate'] as String?,
       status: (json['status'] as num).toInt(),
@@ -138,4 +142,22 @@ Map<String, dynamic> _$$FeeFinesImplToJson(_$FeeFinesImpl instance) =>
       'id': instance.id,
       'creationDate': instance.creationDate,
       'deleted': instance.deleted,
+    };
+
+_$GaragePaymentImpl _$$GaragePaymentImplFromJson(Map<String, dynamic> json) =>
+    _$GaragePaymentImpl(
+      id: json['id'] as String?,
+      name: json['name'] as String?,
+      address: json['address'] as String?,
+      phone: json['phone'] as String?,
+      email: json['email'] as String?,
+    );
+
+Map<String, dynamic> _$$GaragePaymentImplToJson(_$GaragePaymentImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'address': instance.address,
+      'phone': instance.phone,
+      'email': instance.email,
     };

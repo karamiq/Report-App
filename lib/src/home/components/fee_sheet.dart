@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app/data/services/clients/auth_client.dart';
 import 'package:app/src/home/components/fee_from.dart';
 import 'package:app/src/home/components/functions.dart';
 import 'package:flutter/material.dart';
@@ -68,10 +69,7 @@ class FeeSheet extends ConsumerWidget {
                             checkYourLocation(context);
                             return;
                           }
-                          // Post the image and get URL
                           final imageUrl = await postImage(ref, image!);
-
-                          // Prepare data for submission
                           Map<String, dynamic> data = {
                             "number": int.parse(
                                 FeeFormState.feeNumberContorller.text),

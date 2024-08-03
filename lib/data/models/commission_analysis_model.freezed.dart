@@ -411,32 +411,32 @@ LastViolation _$LastViolationFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LastViolation {
   int get number => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
-  String get userFullName => throw _privateConstructorUsedError;
-  String get userGarageId => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
+  String? get userFullName => throw _privateConstructorUsedError;
+  String? get userGarageId => throw _privateConstructorUsedError;
   String? get userGarageName => throw _privateConstructorUsedError;
   String? get garageGovernorateName => throw _privateConstructorUsedError;
-  String get vehicleId => throw _privateConstructorUsedError;
+  String? get vehicleId => throw _privateConstructorUsedError;
   String? get vehicleChassisNumber => throw _privateConstructorUsedError;
-  String get vehiclePlateCharacterId => throw _privateConstructorUsedError;
-  String get vehiclePlateCharacterName => throw _privateConstructorUsedError;
+  String? get vehiclePlateCharacterId => throw _privateConstructorUsedError;
+  String? get vehiclePlateCharacterName => throw _privateConstructorUsedError;
   String? get vehiclePlateType => throw _privateConstructorUsedError;
-  String get vehicleGovernorateId => throw _privateConstructorUsedError;
+  String? get vehicleGovernorateId => throw _privateConstructorUsedError;
   String? get vehicleGovernorateName => throw _privateConstructorUsedError;
-  String get plateNumber => throw _privateConstructorUsedError;
+  String? get plateNumber => throw _privateConstructorUsedError;
   FeeFines get feeFines => throw _privateConstructorUsedError;
   bool get isPaid => throw _privateConstructorUsedError;
-  List<dynamic> get images => throw _privateConstructorUsedError;
+  List<String> get images => throw _privateConstructorUsedError;
   int get duplicateCount => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
   int get totalAmount => throw _privateConstructorUsedError;
   String? get lat => throw _privateConstructorUsedError;
   String? get lng => throw _privateConstructorUsedError;
   int get invoiceNumber => throw _privateConstructorUsedError;
-  String get garageId => throw _privateConstructorUsedError;
+  String? get garageId => throw _privateConstructorUsedError;
   String? get garageName => throw _privateConstructorUsedError;
   String? get paymentGarageId => throw _privateConstructorUsedError;
-  dynamic get paymentGarage => throw _privateConstructorUsedError;
+  GaragePayment? get paymentGarage => throw _privateConstructorUsedError;
   int? get paymentReceiptNumber => throw _privateConstructorUsedError;
   String? get paymentDate => throw _privateConstructorUsedError;
   int get status => throw _privateConstructorUsedError;
@@ -460,32 +460,32 @@ abstract class $LastViolationCopyWith<$Res> {
   @useResult
   $Res call(
       {int number,
-      String userId,
-      String userFullName,
-      String userGarageId,
+      String? userId,
+      String? userFullName,
+      String? userGarageId,
       String? userGarageName,
       String? garageGovernorateName,
-      String vehicleId,
+      String? vehicleId,
       String? vehicleChassisNumber,
-      String vehiclePlateCharacterId,
-      String vehiclePlateCharacterName,
+      String? vehiclePlateCharacterId,
+      String? vehiclePlateCharacterName,
       String? vehiclePlateType,
-      String vehicleGovernorateId,
+      String? vehicleGovernorateId,
       String? vehicleGovernorateName,
-      String plateNumber,
+      String? plateNumber,
       FeeFines feeFines,
       bool isPaid,
-      List<dynamic> images,
+      List<String> images,
       int duplicateCount,
       int amount,
       int totalAmount,
       String? lat,
       String? lng,
       int invoiceNumber,
-      String garageId,
+      String? garageId,
       String? garageName,
       String? paymentGarageId,
-      dynamic paymentGarage,
+      GaragePayment? paymentGarage,
       int? paymentReceiptNumber,
       String? paymentDate,
       int status,
@@ -496,6 +496,7 @@ abstract class $LastViolationCopyWith<$Res> {
       bool deleted});
 
   $FeeFinesCopyWith<$Res> get feeFines;
+  $GaragePaymentCopyWith<$Res>? get paymentGarage;
 }
 
 /// @nodoc
@@ -512,19 +513,19 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
   @override
   $Res call({
     Object? number = null,
-    Object? userId = null,
-    Object? userFullName = null,
-    Object? userGarageId = null,
+    Object? userId = freezed,
+    Object? userFullName = freezed,
+    Object? userGarageId = freezed,
     Object? userGarageName = freezed,
     Object? garageGovernorateName = freezed,
-    Object? vehicleId = null,
+    Object? vehicleId = freezed,
     Object? vehicleChassisNumber = freezed,
-    Object? vehiclePlateCharacterId = null,
-    Object? vehiclePlateCharacterName = null,
+    Object? vehiclePlateCharacterId = freezed,
+    Object? vehiclePlateCharacterName = freezed,
     Object? vehiclePlateType = freezed,
-    Object? vehicleGovernorateId = null,
+    Object? vehicleGovernorateId = freezed,
     Object? vehicleGovernorateName = freezed,
-    Object? plateNumber = null,
+    Object? plateNumber = freezed,
     Object? feeFines = null,
     Object? isPaid = null,
     Object? images = null,
@@ -534,7 +535,7 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
     Object? lat = freezed,
     Object? lng = freezed,
     Object? invoiceNumber = null,
-    Object? garageId = null,
+    Object? garageId = freezed,
     Object? garageName = freezed,
     Object? paymentGarageId = freezed,
     Object? paymentGarage = freezed,
@@ -552,18 +553,18 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      userFullName: null == userFullName
+              as String?,
+      userFullName: freezed == userFullName
           ? _value.userFullName
           : userFullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userGarageId: null == userGarageId
+              as String?,
+      userGarageId: freezed == userGarageId
           ? _value.userGarageId
           : userGarageId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userGarageName: freezed == userGarageName
           ? _value.userGarageName
           : userGarageName // ignore: cast_nullable_to_non_nullable
@@ -572,38 +573,38 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
           ? _value.garageGovernorateName
           : garageGovernorateName // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicleId: null == vehicleId
+      vehicleId: freezed == vehicleId
           ? _value.vehicleId
           : vehicleId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleChassisNumber: freezed == vehicleChassisNumber
           ? _value.vehicleChassisNumber
           : vehicleChassisNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehiclePlateCharacterId: null == vehiclePlateCharacterId
+      vehiclePlateCharacterId: freezed == vehiclePlateCharacterId
           ? _value.vehiclePlateCharacterId
           : vehiclePlateCharacterId // ignore: cast_nullable_to_non_nullable
-              as String,
-      vehiclePlateCharacterName: null == vehiclePlateCharacterName
+              as String?,
+      vehiclePlateCharacterName: freezed == vehiclePlateCharacterName
           ? _value.vehiclePlateCharacterName
           : vehiclePlateCharacterName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehiclePlateType: freezed == vehiclePlateType
           ? _value.vehiclePlateType
           : vehiclePlateType // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicleGovernorateId: null == vehicleGovernorateId
+      vehicleGovernorateId: freezed == vehicleGovernorateId
           ? _value.vehicleGovernorateId
           : vehicleGovernorateId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleGovernorateName: freezed == vehicleGovernorateName
           ? _value.vehicleGovernorateName
           : vehicleGovernorateName // ignore: cast_nullable_to_non_nullable
               as String?,
-      plateNumber: null == plateNumber
+      plateNumber: freezed == plateNumber
           ? _value.plateNumber
           : plateNumber // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       feeFines: null == feeFines
           ? _value.feeFines
           : feeFines // ignore: cast_nullable_to_non_nullable
@@ -615,7 +616,7 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<String>,
       duplicateCount: null == duplicateCount
           ? _value.duplicateCount
           : duplicateCount // ignore: cast_nullable_to_non_nullable
@@ -640,10 +641,10 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
           ? _value.invoiceNumber
           : invoiceNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      garageId: null == garageId
+      garageId: freezed == garageId
           ? _value.garageId
           : garageId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       garageName: freezed == garageName
           ? _value.garageName
           : garageName // ignore: cast_nullable_to_non_nullable
@@ -655,7 +656,7 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
       paymentGarage: freezed == paymentGarage
           ? _value.paymentGarage
           : paymentGarage // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as GaragePayment?,
       paymentReceiptNumber: freezed == paymentReceiptNumber
           ? _value.paymentReceiptNumber
           : paymentReceiptNumber // ignore: cast_nullable_to_non_nullable
@@ -698,6 +699,18 @@ class _$LastViolationCopyWithImpl<$Res, $Val extends LastViolation>
       return _then(_value.copyWith(feeFines: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GaragePaymentCopyWith<$Res>? get paymentGarage {
+    if (_value.paymentGarage == null) {
+      return null;
+    }
+
+    return $GaragePaymentCopyWith<$Res>(_value.paymentGarage!, (value) {
+      return _then(_value.copyWith(paymentGarage: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -710,32 +723,32 @@ abstract class _$$LastViolationImplCopyWith<$Res>
   @useResult
   $Res call(
       {int number,
-      String userId,
-      String userFullName,
-      String userGarageId,
+      String? userId,
+      String? userFullName,
+      String? userGarageId,
       String? userGarageName,
       String? garageGovernorateName,
-      String vehicleId,
+      String? vehicleId,
       String? vehicleChassisNumber,
-      String vehiclePlateCharacterId,
-      String vehiclePlateCharacterName,
+      String? vehiclePlateCharacterId,
+      String? vehiclePlateCharacterName,
       String? vehiclePlateType,
-      String vehicleGovernorateId,
+      String? vehicleGovernorateId,
       String? vehicleGovernorateName,
-      String plateNumber,
+      String? plateNumber,
       FeeFines feeFines,
       bool isPaid,
-      List<dynamic> images,
+      List<String> images,
       int duplicateCount,
       int amount,
       int totalAmount,
       String? lat,
       String? lng,
       int invoiceNumber,
-      String garageId,
+      String? garageId,
       String? garageName,
       String? paymentGarageId,
-      dynamic paymentGarage,
+      GaragePayment? paymentGarage,
       int? paymentReceiptNumber,
       String? paymentDate,
       int status,
@@ -747,6 +760,8 @@ abstract class _$$LastViolationImplCopyWith<$Res>
 
   @override
   $FeeFinesCopyWith<$Res> get feeFines;
+  @override
+  $GaragePaymentCopyWith<$Res>? get paymentGarage;
 }
 
 /// @nodoc
@@ -761,19 +776,19 @@ class __$$LastViolationImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? number = null,
-    Object? userId = null,
-    Object? userFullName = null,
-    Object? userGarageId = null,
+    Object? userId = freezed,
+    Object? userFullName = freezed,
+    Object? userGarageId = freezed,
     Object? userGarageName = freezed,
     Object? garageGovernorateName = freezed,
-    Object? vehicleId = null,
+    Object? vehicleId = freezed,
     Object? vehicleChassisNumber = freezed,
-    Object? vehiclePlateCharacterId = null,
-    Object? vehiclePlateCharacterName = null,
+    Object? vehiclePlateCharacterId = freezed,
+    Object? vehiclePlateCharacterName = freezed,
     Object? vehiclePlateType = freezed,
-    Object? vehicleGovernorateId = null,
+    Object? vehicleGovernorateId = freezed,
     Object? vehicleGovernorateName = freezed,
-    Object? plateNumber = null,
+    Object? plateNumber = freezed,
     Object? feeFines = null,
     Object? isPaid = null,
     Object? images = null,
@@ -783,7 +798,7 @@ class __$$LastViolationImplCopyWithImpl<$Res>
     Object? lat = freezed,
     Object? lng = freezed,
     Object? invoiceNumber = null,
-    Object? garageId = null,
+    Object? garageId = freezed,
     Object? garageName = freezed,
     Object? paymentGarageId = freezed,
     Object? paymentGarage = freezed,
@@ -801,18 +816,18 @@ class __$$LastViolationImplCopyWithImpl<$Res>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      userFullName: null == userFullName
+              as String?,
+      userFullName: freezed == userFullName
           ? _value.userFullName
           : userFullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userGarageId: null == userGarageId
+              as String?,
+      userGarageId: freezed == userGarageId
           ? _value.userGarageId
           : userGarageId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       userGarageName: freezed == userGarageName
           ? _value.userGarageName
           : userGarageName // ignore: cast_nullable_to_non_nullable
@@ -821,38 +836,38 @@ class __$$LastViolationImplCopyWithImpl<$Res>
           ? _value.garageGovernorateName
           : garageGovernorateName // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicleId: null == vehicleId
+      vehicleId: freezed == vehicleId
           ? _value.vehicleId
           : vehicleId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleChassisNumber: freezed == vehicleChassisNumber
           ? _value.vehicleChassisNumber
           : vehicleChassisNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehiclePlateCharacterId: null == vehiclePlateCharacterId
+      vehiclePlateCharacterId: freezed == vehiclePlateCharacterId
           ? _value.vehiclePlateCharacterId
           : vehiclePlateCharacterId // ignore: cast_nullable_to_non_nullable
-              as String,
-      vehiclePlateCharacterName: null == vehiclePlateCharacterName
+              as String?,
+      vehiclePlateCharacterName: freezed == vehiclePlateCharacterName
           ? _value.vehiclePlateCharacterName
           : vehiclePlateCharacterName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehiclePlateType: freezed == vehiclePlateType
           ? _value.vehiclePlateType
           : vehiclePlateType // ignore: cast_nullable_to_non_nullable
               as String?,
-      vehicleGovernorateId: null == vehicleGovernorateId
+      vehicleGovernorateId: freezed == vehicleGovernorateId
           ? _value.vehicleGovernorateId
           : vehicleGovernorateId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       vehicleGovernorateName: freezed == vehicleGovernorateName
           ? _value.vehicleGovernorateName
           : vehicleGovernorateName // ignore: cast_nullable_to_non_nullable
               as String?,
-      plateNumber: null == plateNumber
+      plateNumber: freezed == plateNumber
           ? _value.plateNumber
           : plateNumber // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       feeFines: null == feeFines
           ? _value.feeFines
           : feeFines // ignore: cast_nullable_to_non_nullable
@@ -864,7 +879,7 @@ class __$$LastViolationImplCopyWithImpl<$Res>
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<String>,
       duplicateCount: null == duplicateCount
           ? _value.duplicateCount
           : duplicateCount // ignore: cast_nullable_to_non_nullable
@@ -889,10 +904,10 @@ class __$$LastViolationImplCopyWithImpl<$Res>
           ? _value.invoiceNumber
           : invoiceNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      garageId: null == garageId
+      garageId: freezed == garageId
           ? _value.garageId
           : garageId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       garageName: freezed == garageName
           ? _value.garageName
           : garageName // ignore: cast_nullable_to_non_nullable
@@ -904,7 +919,7 @@ class __$$LastViolationImplCopyWithImpl<$Res>
       paymentGarage: freezed == paymentGarage
           ? _value.paymentGarage
           : paymentGarage // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as GaragePayment?,
       paymentReceiptNumber: freezed == paymentReceiptNumber
           ? _value.paymentReceiptNumber
           : paymentReceiptNumber // ignore: cast_nullable_to_non_nullable
@@ -961,7 +976,7 @@ class _$LastViolationImpl implements _LastViolation {
       required this.plateNumber,
       required this.feeFines,
       required this.isPaid,
-      required final List<dynamic> images,
+      required final List<String> images,
       required this.duplicateCount,
       required this.amount,
       required this.totalAmount,
@@ -988,38 +1003,38 @@ class _$LastViolationImpl implements _LastViolation {
   @override
   final int number;
   @override
-  final String userId;
+  final String? userId;
   @override
-  final String userFullName;
+  final String? userFullName;
   @override
-  final String userGarageId;
+  final String? userGarageId;
   @override
   final String? userGarageName;
   @override
   final String? garageGovernorateName;
   @override
-  final String vehicleId;
+  final String? vehicleId;
   @override
   final String? vehicleChassisNumber;
   @override
-  final String vehiclePlateCharacterId;
+  final String? vehiclePlateCharacterId;
   @override
-  final String vehiclePlateCharacterName;
+  final String? vehiclePlateCharacterName;
   @override
   final String? vehiclePlateType;
   @override
-  final String vehicleGovernorateId;
+  final String? vehicleGovernorateId;
   @override
   final String? vehicleGovernorateName;
   @override
-  final String plateNumber;
+  final String? plateNumber;
   @override
   final FeeFines feeFines;
   @override
   final bool isPaid;
-  final List<dynamic> _images;
+  final List<String> _images;
   @override
-  List<dynamic> get images {
+  List<String> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_images);
@@ -1038,13 +1053,13 @@ class _$LastViolationImpl implements _LastViolation {
   @override
   final int invoiceNumber;
   @override
-  final String garageId;
+  final String? garageId;
   @override
   final String? garageName;
   @override
   final String? paymentGarageId;
   @override
-  final dynamic paymentGarage;
+  final GaragePayment? paymentGarage;
   @override
   final int? paymentReceiptNumber;
   @override
@@ -1119,8 +1134,8 @@ class _$LastViolationImpl implements _LastViolation {
                 other.garageName == garageName) &&
             (identical(other.paymentGarageId, paymentGarageId) ||
                 other.paymentGarageId == paymentGarageId) &&
-            const DeepCollectionEquality()
-                .equals(other.paymentGarage, paymentGarage) &&
+            (identical(other.paymentGarage, paymentGarage) ||
+                other.paymentGarage == paymentGarage) &&
             (identical(other.paymentReceiptNumber, paymentReceiptNumber) ||
                 other.paymentReceiptNumber == paymentReceiptNumber) &&
             (identical(other.paymentDate, paymentDate) ||
@@ -1165,7 +1180,7 @@ class _$LastViolationImpl implements _LastViolation {
         garageId,
         garageName,
         paymentGarageId,
-        const DeepCollectionEquality().hash(paymentGarage),
+        paymentGarage,
         paymentReceiptNumber,
         paymentDate,
         status,
@@ -1193,32 +1208,32 @@ class _$LastViolationImpl implements _LastViolation {
 abstract class _LastViolation implements LastViolation {
   factory _LastViolation(
       {required final int number,
-      required final String userId,
-      required final String userFullName,
-      required final String userGarageId,
+      required final String? userId,
+      required final String? userFullName,
+      required final String? userGarageId,
       final String? userGarageName,
       final String? garageGovernorateName,
-      required final String vehicleId,
+      required final String? vehicleId,
       required final String? vehicleChassisNumber,
-      required final String vehiclePlateCharacterId,
-      required final String vehiclePlateCharacterName,
+      required final String? vehiclePlateCharacterId,
+      required final String? vehiclePlateCharacterName,
       final String? vehiclePlateType,
-      required final String vehicleGovernorateId,
+      required final String? vehicleGovernorateId,
       final String? vehicleGovernorateName,
-      required final String plateNumber,
+      required final String? plateNumber,
       required final FeeFines feeFines,
       required final bool isPaid,
-      required final List<dynamic> images,
+      required final List<String> images,
       required final int duplicateCount,
       required final int amount,
       required final int totalAmount,
       final String? lat,
       final String? lng,
       required final int invoiceNumber,
-      required final String garageId,
+      required final String? garageId,
       final String? garageName,
       final String? paymentGarageId,
-      final dynamic paymentGarage,
+      final GaragePayment? paymentGarage,
       final int? paymentReceiptNumber,
       final String? paymentDate,
       required final int status,
@@ -1234,37 +1249,37 @@ abstract class _LastViolation implements LastViolation {
   @override
   int get number;
   @override
-  String get userId;
+  String? get userId;
   @override
-  String get userFullName;
+  String? get userFullName;
   @override
-  String get userGarageId;
+  String? get userGarageId;
   @override
   String? get userGarageName;
   @override
   String? get garageGovernorateName;
   @override
-  String get vehicleId;
+  String? get vehicleId;
   @override
   String? get vehicleChassisNumber;
   @override
-  String get vehiclePlateCharacterId;
+  String? get vehiclePlateCharacterId;
   @override
-  String get vehiclePlateCharacterName;
+  String? get vehiclePlateCharacterName;
   @override
   String? get vehiclePlateType;
   @override
-  String get vehicleGovernorateId;
+  String? get vehicleGovernorateId;
   @override
   String? get vehicleGovernorateName;
   @override
-  String get plateNumber;
+  String? get plateNumber;
   @override
   FeeFines get feeFines;
   @override
   bool get isPaid;
   @override
-  List<dynamic> get images;
+  List<String> get images;
   @override
   int get duplicateCount;
   @override
@@ -1278,13 +1293,13 @@ abstract class _LastViolation implements LastViolation {
   @override
   int get invoiceNumber;
   @override
-  String get garageId;
+  String? get garageId;
   @override
   String? get garageName;
   @override
   String? get paymentGarageId;
   @override
-  dynamic get paymentGarage;
+  GaragePayment? get paymentGarage;
   @override
   int? get paymentReceiptNumber;
   @override
@@ -1545,5 +1560,225 @@ abstract class _FeeFines implements FeeFines {
   @override
   @JsonKey(ignore: true)
   _$$FeeFinesImplCopyWith<_$FeeFinesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+GaragePayment _$GaragePaymentFromJson(Map<String, dynamic> json) {
+  return _GaragePayment.fromJson(json);
+}
+
+/// @nodoc
+mixin _$GaragePayment {
+  String? get id => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GaragePaymentCopyWith<GaragePayment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GaragePaymentCopyWith<$Res> {
+  factory $GaragePaymentCopyWith(
+          GaragePayment value, $Res Function(GaragePayment) then) =
+      _$GaragePaymentCopyWithImpl<$Res, GaragePayment>;
+  @useResult
+  $Res call(
+      {String? id,
+      String? name,
+      String? address,
+      String? phone,
+      String? email});
+}
+
+/// @nodoc
+class _$GaragePaymentCopyWithImpl<$Res, $Val extends GaragePayment>
+    implements $GaragePaymentCopyWith<$Res> {
+  _$GaragePaymentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? address = freezed,
+    Object? phone = freezed,
+    Object? email = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$GaragePaymentImplCopyWith<$Res>
+    implements $GaragePaymentCopyWith<$Res> {
+  factory _$$GaragePaymentImplCopyWith(
+          _$GaragePaymentImpl value, $Res Function(_$GaragePaymentImpl) then) =
+      __$$GaragePaymentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? id,
+      String? name,
+      String? address,
+      String? phone,
+      String? email});
+}
+
+/// @nodoc
+class __$$GaragePaymentImplCopyWithImpl<$Res>
+    extends _$GaragePaymentCopyWithImpl<$Res, _$GaragePaymentImpl>
+    implements _$$GaragePaymentImplCopyWith<$Res> {
+  __$$GaragePaymentImplCopyWithImpl(
+      _$GaragePaymentImpl _value, $Res Function(_$GaragePaymentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? address = freezed,
+    Object? phone = freezed,
+    Object? email = freezed,
+  }) {
+    return _then(_$GaragePaymentImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$GaragePaymentImpl implements _GaragePayment {
+  _$GaragePaymentImpl(
+      {required this.id,
+      required this.name,
+      required this.address,
+      required this.phone,
+      required this.email});
+
+  factory _$GaragePaymentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GaragePaymentImplFromJson(json);
+
+  @override
+  final String? id;
+  @override
+  final String? name;
+  @override
+  final String? address;
+  @override
+  final String? phone;
+  @override
+  final String? email;
+
+  @override
+  String toString() {
+    return 'GaragePayment(id: $id, name: $name, address: $address, phone: $phone, email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GaragePaymentImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, address, phone, email);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GaragePaymentImplCopyWith<_$GaragePaymentImpl> get copyWith =>
+      __$$GaragePaymentImplCopyWithImpl<_$GaragePaymentImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GaragePaymentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _GaragePayment implements GaragePayment {
+  factory _GaragePayment(
+      {required final String? id,
+      required final String? name,
+      required final String? address,
+      required final String? phone,
+      required final String? email}) = _$GaragePaymentImpl;
+
+  factory _GaragePayment.fromJson(Map<String, dynamic> json) =
+      _$GaragePaymentImpl.fromJson;
+
+  @override
+  String? get id;
+  @override
+  String? get name;
+  @override
+  String? get address;
+  @override
+  String? get phone;
+  @override
+  String? get email;
+  @override
+  @JsonKey(ignore: true)
+  _$$GaragePaymentImplCopyWith<_$GaragePaymentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
