@@ -76,268 +76,270 @@
 48-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:71:22-82
 49
 50    <uses-feature android:name="android.hardware.camera.any" />
-50-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-64
-50-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:10:19-61
+50-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-64
+50-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:9:19-61
 51
 52    <uses-permission
-52-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:14:5-16:38
+52-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-15:38
 53        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-53-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-65
+53-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:14:9-65
 54        android:maxSdkVersion="28" />
-54-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-35
-55
-56    <permission
-56-->[androidx.core:core:1.13.0] /Users/karam/.gradle/caches/transforms-3/fd0398014a5374dc41633efa4ef1bdaf/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
-57        android:name="com.example.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-57-->[androidx.core:core:1.13.0] /Users/karam/.gradle/caches/transforms-3/fd0398014a5374dc41633efa4ef1bdaf/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
-58        android:protectionLevel="signature" />
-58-->[androidx.core:core:1.13.0] /Users/karam/.gradle/caches/transforms-3/fd0398014a5374dc41633efa4ef1bdaf/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
-59
-60    <uses-permission android:name="com.example.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-60-->[androidx.core:core:1.13.0] /Users/karam/.gradle/caches/transforms-3/fd0398014a5374dc41633efa4ef1bdaf/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
-60-->[androidx.core:core:1.13.0] /Users/karam/.gradle/caches/transforms-3/fd0398014a5374dc41633efa4ef1bdaf/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
-61
-62    <application
-63        android:name="android.app.Application"
-64        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-64-->[androidx.core:core:1.13.0] /Users/karam/.gradle/caches/transforms-3/fd0398014a5374dc41633efa4ef1bdaf/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
-65        android:debuggable="true"
-66        android:icon="@mipmap/ic_launcher"
-67        android:label="app" >
-68        <activity
-69            android:name="com.example.app.MainActivity"
-70            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-71            android:exported="true"
-72            android:hardwareAccelerated="true"
-73            android:launchMode="singleTop"
-74            android:taskAffinity=""
-75            android:theme="@style/LaunchTheme"
-76            android:windowSoftInputMode="adjustResize" >
-77
-78            <!--
-79                 Specifies an Android theme to apply to this Activity as soon as
-80                 the Android process has started. This theme is visible to the user
-81                 while the Flutter UI initializes. After that, this theme continues
-82                 to determine the Window background behind the Flutter UI.
-83            -->
-84            <meta-data
-85                android:name="io.flutter.embedding.android.NormalTheme"
-86                android:resource="@style/NormalTheme" />
-87
-88            <intent-filter>
-89                <action android:name="android.intent.action.MAIN" />
-90
-91                <category android:name="android.intent.category.LAUNCHER" />
-92            </intent-filter>
-93            <!-- Deep linking -->
-94            <meta-data
-95                android:name="flutter_deeplinking_enabled"
-96                android:value="true" />
-97
-98            <intent-filter android:autoVerify="true" >
-99                <action android:name="android.intent.action.VIEW" />
-99-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:55:13-65
-99-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:55:21-62
-100
-101                <category android:name="android.intent.category.DEFAULT" />
-102                <category android:name="android.intent.category.BROWSABLE" />
-103
-104                <data
-104-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:51:13-50
-105                    android:host="flutterbooksample.com"
-106                    android:scheme="http" />
-107                <data
-107-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:51:13-50
-108                    android:host="flutterbooksample.com"
-109                    android:scheme="https" />
-110            </intent-filter>
-111        </activity>
-112        <!--
-113             Don't delete the meta-data below.
-114             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-115        -->
-116        <meta-data
-117            android:name="flutterEmbedding"
-118            android:value="2" />
-119
-120        <provider
-120-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:9-19:20
-121            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-121-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-82
-122            android:authorities="com.example.app.flutter.image_provider"
-122-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-74
-123            android:exported="false"
-123-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-37
-124            android:grantUriPermissions="true" >
-124-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-47
-125            <meta-data
-125-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-18:75
-126                android:name="android.support.FILE_PROVIDER_PATHS"
-126-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-67
-127                android:resource="@xml/flutter_image_picker_file_paths" />
-127-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:18:17-72
-128        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
-129        <service
-129-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-33:19
-130            android:name="com.google.android.gms.metadata.ModuleDependencies"
-130-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-78
-131            android:enabled="false"
-131-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-36
-132            android:exported="false" >
-132-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
-133            <intent-filter>
-133-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-28:29
-134                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-134-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:27:17-94
-134-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:27:25-91
-135            </intent-filter>
-136
-137            <meta-data
-137-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-32:36
-138                android:name="photopicker_activity:0:required"
-138-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:31:17-63
-139                android:value="" />
-139-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:32:17-33
-140        </service>
-141        <service
-141-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:56
-142            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-142-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-77
-143            android:enabled="true"
-143-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-35
-144            android:exported="false"
-144-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
-145            android:foregroundServiceType="location" />
-145-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-53
-146        <service
-146-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-17:56
-147            android:name="com.lyokone.location.FlutterLocationService"
-147-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-71
-148            android:enabled="true"
-148-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-35
-149            android:exported="false"
-149-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
-150            android:foregroundServiceType="location" />
-150-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-53
-151
-152        <activity
-152-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
-153            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-153-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
-154            android:exported="false"
-154-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
-155            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-155-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
-156        <activity
-156-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/e2b75c668ee6ed43f4451593c0411cae/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:9-22:45
-157            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-157-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/e2b75c668ee6ed43f4451593c0411cae/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:19-85
-158            android:exported="false"
-158-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/e2b75c668ee6ed43f4451593c0411cae/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:22:19-43
-159            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-159-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/e2b75c668ee6ed43f4451593c0411cae/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:21:19-78
-160
-161        <meta-data
-161-->[com.google.android.gms:play-services-basement:18.3.0] /Users/karam/.gradle/caches/transforms-3/40a6846c66df7cef3336541a280cfdef/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
-162            android:name="com.google.android.gms.version"
-162-->[com.google.android.gms:play-services-basement:18.3.0] /Users/karam/.gradle/caches/transforms-3/40a6846c66df7cef3336541a280cfdef/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
-163            android:value="@integer/google_play_services_version" />
-163-->[com.google.android.gms:play-services-basement:18.3.0] /Users/karam/.gradle/caches/transforms-3/40a6846c66df7cef3336541a280cfdef/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
-164
-165        <service
-165-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/451745a8173eef975254774bff927b96/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:24:9-33:19
-166            android:name="androidx.camera.core.impl.MetadataHolderService"
-166-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/451745a8173eef975254774bff927b96/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:25:13-75
-167            android:enabled="false"
-167-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/451745a8173eef975254774bff927b96/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:26:13-36
-168            android:exported="false" >
-168-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/451745a8173eef975254774bff927b96/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:27:13-37
-169            <meta-data
-169-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/451745a8173eef975254774bff927b96/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:30:13-32:89
-170                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-170-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/451745a8173eef975254774bff927b96/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:31:17-103
-171                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-171-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/451745a8173eef975254774bff927b96/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:32:17-86
-172        </service>
-173
-174        <provider
-174-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/0e596a29c81eee8136797ee227d7c500/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-175            android:name="androidx.startup.InitializationProvider"
-175-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/0e596a29c81eee8136797ee227d7c500/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-176            android:authorities="com.example.app.androidx-startup"
-176-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/0e596a29c81eee8136797ee227d7c500/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
-177            android:exported="false" >
-177-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/0e596a29c81eee8136797ee227d7c500/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
-178            <meta-data
-178-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/0e596a29c81eee8136797ee227d7c500/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-179                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-179-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/0e596a29c81eee8136797ee227d7c500/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
-180                android:value="androidx.startup" />
-180-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/0e596a29c81eee8136797ee227d7c500/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
-181            <meta-data
-181-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/karam/.gradle/caches/transforms-3/cb9d013bd0177d8c8626a4da732c97d5/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
-182                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-182-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/karam/.gradle/caches/transforms-3/cb9d013bd0177d8c8626a4da732c97d5/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
-183                android:value="androidx.startup" />
-183-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/karam/.gradle/caches/transforms-3/cb9d013bd0177d8c8626a4da732c97d5/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
-184            <meta-data
-184-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-185                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-185-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-186                android:value="androidx.startup" />
-186-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-187        </provider>
-188
-189        <uses-library
-189-->[androidx.window:window:1.0.0-beta04] /Users/karam/.gradle/caches/transforms-3/4f86f4c61b99618f34b2dcd4061fd4e1/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-190            android:name="androidx.window.extensions"
-190-->[androidx.window:window:1.0.0-beta04] /Users/karam/.gradle/caches/transforms-3/4f86f4c61b99618f34b2dcd4061fd4e1/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-191            android:required="false" />
-191-->[androidx.window:window:1.0.0-beta04] /Users/karam/.gradle/caches/transforms-3/4f86f4c61b99618f34b2dcd4061fd4e1/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-192        <uses-library
-192-->[androidx.window:window:1.0.0-beta04] /Users/karam/.gradle/caches/transforms-3/4f86f4c61b99618f34b2dcd4061fd4e1/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-193            android:name="androidx.window.sidecar"
-193-->[androidx.window:window:1.0.0-beta04] /Users/karam/.gradle/caches/transforms-3/4f86f4c61b99618f34b2dcd4061fd4e1/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-194            android:required="false" />
-194-->[androidx.window:window:1.0.0-beta04] /Users/karam/.gradle/caches/transforms-3/4f86f4c61b99618f34b2dcd4061fd4e1/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-195
-196        <receiver
-196-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-197            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-197-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-198            android:directBootAware="false"
-198-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-199            android:enabled="true"
-199-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-200            android:exported="true"
-200-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-201            android:permission="android.permission.DUMP" >
-201-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-202            <intent-filter>
-202-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-203                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-203-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-203-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-204            </intent-filter>
-205            <intent-filter>
-205-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-206                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-206-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-206-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-207            </intent-filter>
-208            <intent-filter>
-208-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-209                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-209-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-209-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-210            </intent-filter>
-211            <intent-filter>
-211-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-212                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-212-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-212-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/karam/.gradle/caches/transforms-3/dddef4c9e8c51fa57418b8550cd69c59/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-213            </intent-filter>
-214        </receiver>
-215    </application>
-216
-217</manifest>
+54-->[:camera_android_camerax] /Users/karam/Documents/GitHub/Report-App/build/camera_android_camerax/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-35
+55    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+56
+57    <permission
+57-->[androidx.core:core:1.13.1] /Users/karam/.gradle/caches/transforms-3/0d881f4665e9c5c8daa5e217338bf6c2/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+58        android:name="com.example.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+58-->[androidx.core:core:1.13.1] /Users/karam/.gradle/caches/transforms-3/0d881f4665e9c5c8daa5e217338bf6c2/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+59        android:protectionLevel="signature" />
+59-->[androidx.core:core:1.13.1] /Users/karam/.gradle/caches/transforms-3/0d881f4665e9c5c8daa5e217338bf6c2/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+60
+61    <uses-permission android:name="com.example.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+61-->[androidx.core:core:1.13.1] /Users/karam/.gradle/caches/transforms-3/0d881f4665e9c5c8daa5e217338bf6c2/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+61-->[androidx.core:core:1.13.1] /Users/karam/.gradle/caches/transforms-3/0d881f4665e9c5c8daa5e217338bf6c2/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+62
+63    <application
+64        android:name="android.app.Application"
+65        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+65-->[androidx.core:core:1.13.1] /Users/karam/.gradle/caches/transforms-3/0d881f4665e9c5c8daa5e217338bf6c2/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+66        android:debuggable="true"
+67        android:icon="@mipmap/ic_launcher"
+68        android:label="app" >
+69        <activity
+70            android:name="com.example.app.MainActivity"
+71            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+72            android:exported="true"
+73            android:hardwareAccelerated="true"
+74            android:launchMode="singleTop"
+75            android:taskAffinity=""
+76            android:theme="@style/LaunchTheme"
+77            android:windowSoftInputMode="adjustResize" >
+78
+79            <!--
+80                 Specifies an Android theme to apply to this Activity as soon as
+81                 the Android process has started. This theme is visible to the user
+82                 while the Flutter UI initializes. After that, this theme continues
+83                 to determine the Window background behind the Flutter UI.
+84            -->
+85            <meta-data
+86                android:name="io.flutter.embedding.android.NormalTheme"
+87                android:resource="@style/NormalTheme" />
+88
+89            <intent-filter>
+90                <action android:name="android.intent.action.MAIN" />
+91
+92                <category android:name="android.intent.category.LAUNCHER" />
+93            </intent-filter>
+94            <!-- Deep linking -->
+95            <meta-data
+96                android:name="flutter_deeplinking_enabled"
+97                android:value="true" />
+98
+99            <intent-filter android:autoVerify="true" >
+100                <action android:name="android.intent.action.VIEW" />
+100-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:55:13-65
+100-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:55:21-62
+101
+102                <category android:name="android.intent.category.DEFAULT" />
+103                <category android:name="android.intent.category.BROWSABLE" />
+104
+105                <data
+105-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:51:13-50
+106                    android:host="flutterbooksample.com"
+107                    android:scheme="http" />
+108                <data
+108-->/Users/karam/Documents/GitHub/Report-App/android/app/src/main/AndroidManifest.xml:51:13-50
+109                    android:host="flutterbooksample.com"
+110                    android:scheme="https" />
+111            </intent-filter>
+112        </activity>
+113        <!--
+114             Don't delete the meta-data below.
+115             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+116        -->
+117        <meta-data
+118            android:name="flutterEmbedding"
+119            android:value="2" />
+120
+121        <provider
+121-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:9-19:20
+122            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+122-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-82
+123            android:authorities="com.example.app.flutter.image_provider"
+123-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-74
+124            android:exported="false"
+124-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-37
+125            android:grantUriPermissions="true" >
+125-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-47
+126            <meta-data
+126-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-18:75
+127                android:name="android.support.FILE_PROVIDER_PATHS"
+127-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-67
+128                android:resource="@xml/flutter_image_picker_file_paths" />
+128-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:18:17-72
+129        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+130        <service
+130-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-33:19
+131            android:name="com.google.android.gms.metadata.ModuleDependencies"
+131-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-78
+132            android:enabled="false"
+132-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-36
+133            android:exported="false" >
+133-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
+134            <intent-filter>
+134-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-28:29
+135                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+135-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:27:17-94
+135-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:27:25-91
+136            </intent-filter>
+137
+138            <meta-data
+138-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-32:36
+139                android:name="photopicker_activity:0:required"
+139-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:31:17-63
+140                android:value="" />
+140-->[:image_picker_android] /Users/karam/Documents/GitHub/Report-App/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:32:17-33
+141        </service>
+142        <service
+142-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:56
+143            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+143-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-77
+144            android:enabled="true"
+144-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-35
+145            android:exported="false"
+145-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
+146            android:foregroundServiceType="location" />
+146-->[:geolocator_android] /Users/karam/Documents/GitHub/Report-App/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-53
+147        <service
+147-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-17:56
+148            android:name="com.lyokone.location.FlutterLocationService"
+148-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-71
+149            android:enabled="true"
+149-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-35
+150            android:exported="false"
+150-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+151            android:foregroundServiceType="location" />
+151-->[:location] /Users/karam/Documents/GitHub/Report-App/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-53
+152
+153        <activity
+153-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+154            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+154-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+155            android:exported="false"
+155-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+156            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+156-->[:url_launcher_android] /Users/karam/Documents/GitHub/Report-App/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+157
+158        <service
+158-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/001c048faefa5429dc12fe0a3cada5c1/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:24:9-33:19
+159            android:name="androidx.camera.core.impl.MetadataHolderService"
+159-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/001c048faefa5429dc12fe0a3cada5c1/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:25:13-75
+160            android:enabled="false"
+160-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/001c048faefa5429dc12fe0a3cada5c1/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:26:13-36
+161            android:exported="false" >
+161-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/001c048faefa5429dc12fe0a3cada5c1/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:27:13-37
+162            <meta-data
+162-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/001c048faefa5429dc12fe0a3cada5c1/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:30:13-32:89
+163                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+163-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/001c048faefa5429dc12fe0a3cada5c1/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:31:17-103
+164                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+164-->[androidx.camera:camera-camera2:1.3.4] /Users/karam/.gradle/caches/transforms-3/001c048faefa5429dc12fe0a3cada5c1/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:32:17-86
+165        </service>
+166
+167        <activity
+167-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/ede9a7311492b1c134f7c6b9af1ded55/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:9-22:45
+168            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+168-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/ede9a7311492b1c134f7c6b9af1ded55/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:19-85
+169            android:exported="false"
+169-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/ede9a7311492b1c134f7c6b9af1ded55/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:22:19-43
+170            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+170-->[com.google.android.gms:play-services-base:18.3.0] /Users/karam/.gradle/caches/transforms-3/ede9a7311492b1c134f7c6b9af1ded55/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:21:19-78
+171
+172        <meta-data
+172-->[com.google.android.gms:play-services-basement:18.3.0] /Users/karam/.gradle/caches/transforms-3/403b1085bd57866b29b6b799f4f97458/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+173            android:name="com.google.android.gms.version"
+173-->[com.google.android.gms:play-services-basement:18.3.0] /Users/karam/.gradle/caches/transforms-3/403b1085bd57866b29b6b799f4f97458/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+174            android:value="@integer/google_play_services_version" />
+174-->[com.google.android.gms:play-services-basement:18.3.0] /Users/karam/.gradle/caches/transforms-3/403b1085bd57866b29b6b799f4f97458/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+175
+176        <uses-library
+176-->[androidx.window:window:1.2.0] /Users/karam/.gradle/caches/transforms-3/ee6327f1db704b64e5d0e185a7ea0f3f/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+177            android:name="androidx.window.extensions"
+177-->[androidx.window:window:1.2.0] /Users/karam/.gradle/caches/transforms-3/ee6327f1db704b64e5d0e185a7ea0f3f/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+178            android:required="false" />
+178-->[androidx.window:window:1.2.0] /Users/karam/.gradle/caches/transforms-3/ee6327f1db704b64e5d0e185a7ea0f3f/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+179        <uses-library
+179-->[androidx.window:window:1.2.0] /Users/karam/.gradle/caches/transforms-3/ee6327f1db704b64e5d0e185a7ea0f3f/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+180            android:name="androidx.window.sidecar"
+180-->[androidx.window:window:1.2.0] /Users/karam/.gradle/caches/transforms-3/ee6327f1db704b64e5d0e185a7ea0f3f/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+181            android:required="false" />
+181-->[androidx.window:window:1.2.0] /Users/karam/.gradle/caches/transforms-3/ee6327f1db704b64e5d0e185a7ea0f3f/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+182
+183        <provider
+183-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/96ce36ee008451afc16d1bbd3c6c09d7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+184            android:name="androidx.startup.InitializationProvider"
+184-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/96ce36ee008451afc16d1bbd3c6c09d7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+185            android:authorities="com.example.app.androidx-startup"
+185-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/96ce36ee008451afc16d1bbd3c6c09d7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+186            android:exported="false" >
+186-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/96ce36ee008451afc16d1bbd3c6c09d7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+187            <meta-data
+187-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/96ce36ee008451afc16d1bbd3c6c09d7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+188                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+188-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/96ce36ee008451afc16d1bbd3c6c09d7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+189                android:value="androidx.startup" />
+189-->[androidx.emoji2:emoji2:1.2.0] /Users/karam/.gradle/caches/transforms-3/96ce36ee008451afc16d1bbd3c6c09d7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+190            <meta-data
+190-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/karam/.gradle/caches/transforms-3/74e00e56d85a4c890566f773f8cd09c9/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+191                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+191-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/karam/.gradle/caches/transforms-3/74e00e56d85a4c890566f773f8cd09c9/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+192                android:value="androidx.startup" />
+192-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/karam/.gradle/caches/transforms-3/74e00e56d85a4c890566f773f8cd09c9/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+193            <meta-data
+193-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+194                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+194-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+195                android:value="androidx.startup" />
+195-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+196        </provider>
+197
+198        <receiver
+198-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+199            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+199-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+200            android:directBootAware="false"
+200-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+201            android:enabled="true"
+201-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+202            android:exported="true"
+202-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+203            android:permission="android.permission.DUMP" >
+203-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+204            <intent-filter>
+204-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+205                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+205-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+205-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+206            </intent-filter>
+207            <intent-filter>
+207-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+208                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+208-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+208-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+209            </intent-filter>
+210            <intent-filter>
+210-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+211                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+211-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+211-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+212            </intent-filter>
+213            <intent-filter>
+213-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+214                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+214-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+214-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/karam/.gradle/caches/transforms-3/85a398e93c135c32c343ff6a57f05459/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+215            </intent-filter>
+216        </receiver>
+217    </application>
+218
+219</manifest>

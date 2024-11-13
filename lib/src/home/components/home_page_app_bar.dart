@@ -11,8 +11,8 @@ class HomePageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: Insets.large * 2, vertical: Insets.large),
+        padding:
+            const EdgeInsets.symmetric(horizontal: Insets.large, vertical: Insets.large),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

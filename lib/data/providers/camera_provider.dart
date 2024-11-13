@@ -21,8 +21,8 @@ class CameraNotifier extends StateNotifier<CameraState> {
       final cameras = await availableCameras();
       final firstCamera = cameras.first;
 
-      final controller = CameraController(firstCamera, ResolutionPreset.high,
-          enableAudio: false);
+      final controller =
+          CameraController(firstCamera, ResolutionPreset.high, enableAudio: false);
       await controller.initialize();
 
       state = state.copyWith(
@@ -65,7 +65,6 @@ class CameraNotifier extends StateNotifier<CameraState> {
   }
 }
 
-final cameraNotifierProvider =
-    StateNotifierProvider<CameraNotifier, CameraState>((ref) {
+final cameraNotifierProvider = StateNotifierProvider<CameraNotifier, CameraState>((ref) {
   return CameraNotifier();
 });

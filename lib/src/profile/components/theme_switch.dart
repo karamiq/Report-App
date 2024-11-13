@@ -16,7 +16,7 @@ class _ChangeThemeButtonState extends ConsumerState<ChangeThemeButton> {
   Widget build(BuildContext context) {
     final settings = ref.watch(settingsProvider);
     bool isDarkMode = settings.themeMode.isDark;
-    void _switchThemeMode() {
+    void switchThemeMode() {
       ref.read(settingsProvider.notifier).toggleThemeMode(context);
     }
 
@@ -30,7 +30,7 @@ class _ChangeThemeButtonState extends ConsumerState<ChangeThemeButton> {
                     : const Icon(Icons.dark_mode)),
                 value: isDarkMode,
                 onChanged: (f) {
-                  _switchThemeMode();
+                  switchThemeMode();
                 })));
   }
 }

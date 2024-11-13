@@ -43,6 +43,11 @@ class _AppState extends ConsumerState<App> {
   //     }); // Open the Isar instance
   //   });
   // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +66,7 @@ class _AppState extends ConsumerState<App> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       // Theme
-      themeMode: settings.themeMode,
+      themeMode: ThemeMode.light,
       darkTheme: theme.buildDarkTheme(),
       theme: theme.buildLightTheme(),
       builder: (context, child) => ResponsiveBreakpoints.builder(

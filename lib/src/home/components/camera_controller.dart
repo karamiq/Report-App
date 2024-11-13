@@ -37,42 +37,36 @@ class CameraControls extends StatelessWidget {
       } catch (e) {}
     }
 
-    return Positioned(
-      bottom: 20,
-      right: 0,
-      left: 0,
-      child: Padding(
-        padding: Insets.mediumAll,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              style: IconButton.styleFrom(
-                padding: Insets.mediumAll,
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.black.withOpacity(.3),
+    return Padding(
+      padding: Insets.mediumAll,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          IconButton(
+            style: IconButton.styleFrom(
+              padding: Insets.mediumAll,
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.black.withOpacity(.3),
+            ),
+            onPressed: () => ref(cameraNotifierProvider.notifier).flipCamera(),
+            icon: const Icon(Icons.flip_camera_android_outlined),
+          ),
+          TakePicture(
+            takePicture: takePicture,
+          ),
+          IconButton(
+            style: IconButton.styleFrom(
+              padding: Insets.mediumAll,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderSize.smallRadius,
               ),
-              onPressed: () =>
-                  ref(cameraNotifierProvider.notifier).flipCamera(),
-              icon: const Icon(Icons.flip_camera_android_outlined),
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.black.withOpacity(.15),
             ),
-            TakePicture(
-              takePicture: takePicture,
-            ),
-            IconButton(
-              style: IconButton.styleFrom(
-                padding: Insets.mediumAll,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderSize.smallRadius,
-                ),
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.black.withOpacity(.15),
-              ),
-              onPressed: chooseFromGallery,
-              icon: const Icon(Icons.image_outlined),
-            ),
-          ],
-        ),
+            onPressed: chooseFromGallery,
+            icon: const Icon(Icons.image_outlined),
+          ),
+        ],
       ),
     );
   }
@@ -89,23 +83,21 @@ class TakePicture extends StatefulWidget {
   State<TakePicture> createState() => _TakePictureState();
 }
 
-class _TakePictureState extends State<TakePicture>
-    with TickerProviderStateMixin {
+class _TakePictureState extends State<TakePicture> with TickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> animation;
 
   @override
   void initState() {
-    controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+    controller =
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
     animation = TweenSequence<double>([
       TweenSequenceItem(
-          tween: Tween(begin: 80.0, end: 50.0)
-              .chain(CurveTween(curve: Curves.easeInOut)),
+          tween: Tween(begin: 80.0, end: 50.0).chain(CurveTween(curve: Curves.easeInOut)),
           weight: 1),
       TweenSequenceItem(
-          tween: Tween(begin: 50.0, end: 200.0)
-              .chain(CurveTween(curve: Curves.easeInOut)),
+          tween:
+              Tween(begin: 50.0, end: 200.0).chain(CurveTween(curve: Curves.easeInOut)),
           weight: 1)
     ]).animate(controller);
     controller.addStatusListener((status) {

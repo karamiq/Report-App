@@ -11,12 +11,12 @@ class FeeFullDetailes extends StatelessWidget {
   final String routeName;
 
   const FeeFullDetailes({
-    Key? key,
+    super.key,
     required this.plateNumber,
     required this.governorate,
     required this.plateLetter,
     required this.routeName,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

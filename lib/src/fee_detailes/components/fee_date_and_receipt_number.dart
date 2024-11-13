@@ -42,7 +42,7 @@ class FeeReceiptAndDate extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'رقم الوصل',
                       style: TextStyle(
                         color: Colors.white,
@@ -51,7 +51,7 @@ class FeeReceiptAndDate extends StatelessWidget {
                     ),
                     Text(
                       receiptNumber.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontsTheme.mediumWeight,
                       ),
@@ -81,7 +81,7 @@ class FeeReceiptAndDate extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'تاريخ المخالفة',
                       style: TextStyle(
                         color: Colors.white,
@@ -90,7 +90,7 @@ class FeeReceiptAndDate extends StatelessWidget {
                     ),
                     Text(
                       feeDate.formatDate(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontsTheme.mediumWeight,
                       ),

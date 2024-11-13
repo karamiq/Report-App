@@ -161,8 +161,7 @@ class AppTheme {
 
     return IconButtonThemeData(
         style: IconButton.styleFrom(
-            backgroundColor: colorScheme.surface,
-            foregroundColor: colorScheme.primary));
+            backgroundColor: colorScheme.surface, foregroundColor: colorScheme.primary));
   }
 }
 

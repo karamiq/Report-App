@@ -140,7 +140,7 @@ class _showSelectionBottomSheetState extends State<showSelectionBottomSheet> {
                 ),
                 const SizedBox(height: Insets.small),
                 Expanded(
-                  child: _filteredCountries.length != 0
+                  child: _filteredCountries.isNotEmpty
                       ? ListView.builder(
                           itemCount: _filteredCountries.length,
                           itemBuilder: (BuildContext context, int index) {

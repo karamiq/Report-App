@@ -29,8 +29,7 @@ class ViolationCard extends StatelessWidget {
       borderRadius: BorderSize.smallRadius,
       child: Container(
           padding: const EdgeInsets.symmetric(
-              vertical: Insets.small + Insets.extraSmall,
-              horizontal: Insets.small),
+              vertical: Insets.small + Insets.extraSmall, horizontal: Insets.small),
           decoration: BoxDecoration(
               border: Border.all(
                 color: Theme.of(context).hintColor.withAlpha(100),
@@ -41,12 +40,12 @@ class ViolationCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                flex: 8,
+                flex: 7,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const CustomSvgStyle(icon: Assets.assetsSvgReceiptMinus),
-                    const Gap(Insets.small),
+                    const Gap(Insets.extraSmall),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,6 +94,7 @@ class ViolationCard extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const Gap(Insets.small),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

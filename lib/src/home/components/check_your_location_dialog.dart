@@ -12,6 +12,8 @@ Future<void> checkYourLocation(BuildContext context) {
 }
 
 class CheckYourLocationDialog extends ConsumerStatefulWidget {
+  const CheckYourLocationDialog({super.key});
+
   @override
   createState() => _CheckYourLocationDialogState();
 }

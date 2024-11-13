@@ -1,10 +1,11 @@
 import 'package:app/data/services/clients/_clients.dart';
-import 'package:app/l10n/l10n.dart';
 import 'package:app/utils/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
+
+import '../l10n/l10n.dart';
 
 extension DeviceHeight on BuildContext {
   double get height => MediaQuery.of(this).size.height;
@@ -29,8 +30,6 @@ extension FormStateX on GlobalKey<FormState> {
   bool isNotValid() => !currentState!.validate();
 }
 
-
-
 extension NullableDateTimeExtension on DateTime? {
   String formatDate() {
     var inputFormat = DateFormat('MM/dd/yyyy');
@@ -46,7 +45,6 @@ extension ThemeExtension on BuildContext {
 
   TextTheme get textTheme => theme.textTheme;
 }
-
 
 extension HttpResponseX<T> on Future<HttpResponse<T>> {
   Future<T> get data => then((value) => value.data);
@@ -76,16 +74,13 @@ extension AppLocalizationsExtension on BuildContext {
 }
 
 extension DateTimeX on DateTime {
-  String formatDate([String? locale]) =>
-      DateFormat('yyyy/MM/dd', locale).format(this);
+  String formatDate([String? locale]) => DateFormat('yyyy/MM/dd', locale).format(this);
 
-  String formatTime([String? locale]) =>
-      DateFormat('hh:mm a', locale).format(this);
+  String formatTime([String? locale]) => DateFormat('hh:mm a', locale).format(this);
 
   String formatDOW([String? locale]) => DateFormat('EEEE', locale).format(this);
 
-  String format([String? locale]) =>
-      DateFormat('yyyy/MM/dd hh:mm', locale).format(this);
+  String format([String? locale]) => DateFormat('yyyy/MM/dd hh:mm', locale).format(this);
 
   String formatTimeago([String? locale]) =>
       timeago.format(this, locale: locale).toUpperCase();

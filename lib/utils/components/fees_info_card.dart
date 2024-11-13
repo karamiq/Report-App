@@ -41,7 +41,7 @@ class FeesInfoCard extends StatelessWidget {
             ),
             const Gap(Insets.small),
             Text(
-              '$subTitle',
+              subTitle,
               style: const TextStyle(
                 color: Color(0xFF033D88),
                 fontWeight: FontsTheme.bigWeight,

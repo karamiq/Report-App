@@ -12,7 +12,6 @@ dependencies:
 
   flutter_localizations:
     sdk: flutter
-
   intl: ^0.19.0
 
   # Fonts And Icons
@@ -68,14 +67,17 @@ dependencies:
   # ffmpeg_kit_flutter: ^6.0.2
 
   path_provider: any
-  camera: ^0.11.0+1
-  permission_handler: ^11.3.1
-  syncfusion_flutter_charts: ^26.1.42
+  camera: ^0.11.0+2
+  permission_handler: ^8.0.0+1
+  syncfusion_flutter_charts: ^27.1.58
   geolocator: ^11.1.0
   location: ^6.0.2
   geocoding: ^3.0.0
   flutter_gen_runner: ^5.6.0
   restart_app: ^1.2.1
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

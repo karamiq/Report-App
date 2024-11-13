@@ -1,4 +1,3 @@
-import 'package:app/data/models/_models.dart';
 
 import '../../models/data_model.dart';
 import '../../models/user_model.dart';

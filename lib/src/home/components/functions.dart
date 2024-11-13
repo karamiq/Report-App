@@ -24,10 +24,10 @@ Future<String?> postImage(WidgetRef ref, File image) async {
 
     String url =
         'https://garagat-api.digital-logic.tech/' + response['message'];
-    print('Response: ${url}');
+    print('Response: $url');
     return url;
   } catch (e) {
-    print('Unknown error: ${e}');
+    print('Unknown error: $e');
     return null;
   }
 }
@@ -111,7 +111,7 @@ Future<List<PlateTypeModel>> plteTaype(WidgetRef ref) async {
     final response = await ref.read(authClientProvider).platyTypeGet();
     final dataList = response.data as List<dynamic>;
     final list = dataList.map((fee) => PlateTypeModel.fromJson(fee)).toList();
-    print(await list);
+    print(list);
     return list;
   } catch (e) {
     return [];

@@ -17,6 +17,7 @@ class LoginPage extends HookConsumerWidget {
     final isLoading = useState<bool>(false);
     useEffect(() {
       ref.read(cameraNotifierProvider.notifier).initializeCamera();
+      return null;
     }, []);
 
     void signIn() async {

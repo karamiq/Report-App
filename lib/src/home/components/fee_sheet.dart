@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:app/data/services/clients/auth_client.dart';
 import 'package:app/src/home/components/fee_from.dart';
 import 'package:app/src/home/components/functions.dart';
 import 'package:flutter/material.dart';
@@ -71,18 +70,14 @@ class FeeSheet extends ConsumerWidget {
                           }
                           final imageUrl = await postImage(ref, image!);
                           Map<String, dynamic> data = {
-                            "number": int.parse(
-                                FeeFormState.feeNumberContorller.text),
-                            "plateNumber":
-                                FeeFormState.plateNumberController.text,
-                            "plateCharacterId":
-                                FeeFormState.plateCharacterId.text,
+                            "number": int.parse(FeeFormState.feeNumberContorller.text),
+                            "plateNumber": FeeFormState.plateNumberController.text,
+                            "plateCharacterId": FeeFormState.plateCharacterId.text,
                             "plateTypeId": FeeFormState.plateTypeId.text,
                             "feeFinesId": FeeFormState.feeFinesId.text,
                             "garageId": user!.garageId,
                             "creationDate": DateTime.now().toIso8601String(),
-                            "governorateId":
-                                FeeFormState.governorateControllerId.text,
+                            "governorateId": FeeFormState.governorateControllerId.text,
                             "images": [imageUrl],
                             "note": FeeFormState.notesController.text,
                             "lat": loc!.lat.toString(),
@@ -92,15 +87,12 @@ class FeeSheet extends ConsumerWidget {
                           };
 
                           VehicleFee vehicleFee = VehicleFee(
-                            number: int.parse(
-                                FeeFormState.feeNumberContorller.text),
-                            plateNumber:
-                                FeeFormState.plateNumberController.text,
+                            number: int.parse(FeeFormState.feeNumberContorller.text),
+                            plateNumber: FeeFormState.plateNumberController.text,
                             plateTypeId: FeeFormState.plateTypeId.text,
                             plateCharacter: FeeFormState.charController.text,
                             creationDate: DateTime.now(),
-                            governorate:
-                                FeeFormState.governorateController.text,
+                            governorate: FeeFormState.governorateController.text,
                             images: [imageUrl!],
                             violationLocation:
                                 '${loc.place!.locality}/${loc.place!.subLocality}',
@@ -122,8 +114,7 @@ class FeeSheet extends ConsumerWidget {
                           image!.delete();
                           context.pop();
 
-                          context.pushNamed(RoutesDocument.feeIsSend,
-                              extra: vehicleFee);
+                          context.pushNamed(RoutesDocument.feeIsSend, extra: vehicleFee);
                         }
                       } finally {
                         isLoading.value = false;

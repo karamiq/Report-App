@@ -70,6 +70,7 @@ class PermissionOverlay extends StatelessWidget {
 
 void showPermissionDialog(context) {
   showDialog(
+    barrierDismissible: false,
     context: Navigator.of(context).context,
     builder: (context) => AlertDialog(
       title: const Text('مطلوب إذن'),
